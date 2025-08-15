@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Get.offAllNamed(AppRoutes.home);
     });
   }
@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SizedBox(
         height: Get.height,
         child: Center(
-          child: Image.asset(AppImage.companyLogo, width: Get.width * .9),
+          child: Image.asset(AppImage.companyLogo, width: Get.width * .7),
         ),
       ),
     );

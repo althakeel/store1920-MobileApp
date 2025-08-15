@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:store1920/screens/features/home/bindings/home_binding.dart';
 import 'package:store1920/screens/features/home/views/home_screen.dart';
 import '../screens/features/auth/views/splash_screen.dart';
 
@@ -12,6 +13,6 @@ class AppRoutes {
   static final List<GetPage> pages = [
     GetPage(name: splash, page: () => SplashScreen()),
     // GetPage(name: login, page: () => LoginScreen(), binding: AuthBinding()),
-    GetPage(name: home, page: () => HomeScreen()),
+    GetPage(name: home, page: () => HomeScreen(), binding: HomeBinding()),
   ];
 }

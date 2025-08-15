@@ -6,10 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as img;
 import '../screens/features/auth/controller/loader_controller.dart';
 import '../services/error_type.dart';
-import '../services/http_service.dart';
 import '../utils/log_utils.dart';
-import '../utils/snackbar_util.dart';
-import 'apis.dart';
 
 class ConstantValue extends LoaderController {
   Future<String?> uploadImage({

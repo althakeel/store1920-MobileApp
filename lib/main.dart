@@ -9,19 +9,15 @@ import 'services/connectivity_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Lock orientation to portrait mode only (no rotation)
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
   await GetStorage.init();
-  // Initialize connectivity service BEFORE HTTP service
-  Get.put(ConnectivityService(), permanent: true);
-
-  // Initialize HTTP service with base URL (after connectivity service)
-  // ApiService.initialize();
+  Future.microtask(() {
+    Get.put(ConnectivityService(), permanent: true);
+  });
 
   runApp(const MyApp());
 }
@@ -29,19 +25,32 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(430, 932),
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Sarpanch Connect Program',
-        theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'Roboto'),
-        initialRoute: AppRoutes.splash,
-        getPages: AppRoutes.pages,
-        initialBinding: AuthBinding(),
-      ),
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'store1920',
+          theme: ThemeData(
+            primarySwatch: Colors.green,
+            fontFamily: 'Roboto',
+            useMaterial3: false,
+          ),
+          initialRoute: AppRoutes.splash,
+          getPages: AppRoutes.pages,
+          initialBinding: AuthBinding(),
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: child!,
+            );
+          },
+        );
+      },
     );
   }
 }
