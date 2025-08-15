@@ -9,7 +9,9 @@ abstract class AppColors {
   static Color grey = const Color(0xff918F8F); //#918F8F
   static Color textGrey = const Color(0xff696969); //#696969
   static Color borderGrey = const Color(0xffEDEDED); //#EDEDED
-  static Color secondary = const Color(0xff8646F2); //#262628
+  static Color secondary = const Color(0xff8646F2); //#8646F2
+  static Color amber = const Color(0xffFFE100); //#FFE100
+
   static Color transparent = const Color(0x00FFFFFF); //#FFFFFF
   static Color scaffoldBGColor = const Color(0xffFBFBFD); //#FBFBFD
   static Color textFieldBackground = const Color(0xffE5E5E5); //#E5E5E5
