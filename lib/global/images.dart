@@ -24,7 +24,24 @@ abstract class AppImage {
 
   static String get bagIcon => 'bag_icon'.iconPng;
 
-  //Icons
+  //products icon
+
+  static String get prod1 => 'prod_1'.prodPng;
+
+  static String get prod2 => 'prod_2'.prodPng;
+
+  static String get prod3 => 'prod_3'.prodPng;
+
+  static String get prod4 => 'prod_4'.prodPng;
+
+  static String get prod5 => 'prod_5'.prodPng;
+
+  static String get prod6 => 'prod_6'.prodPng;
+
+  static String get prod7 => 'prod_7'.prodPng;
+
+  static String get prod8 => 'prod_8'.prodPng;
+
   static String get calendar => 'calendar'.svg;
 
   static String get cameraSvg => 'camera'.svg;
@@ -44,6 +61,9 @@ abstract class AppImage {
 extension on String {
   ///for icon folder
   String get iconPng => 'assets/icons/$this.png';
+
+  ///for product images
+  String get prodPng => 'assets/products/$this.png';
 
   ///for logo folder
   // String get logoPng => 'assets/logos/$this.png';

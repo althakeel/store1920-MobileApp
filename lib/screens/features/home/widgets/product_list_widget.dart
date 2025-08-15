@@ -10,9 +10,10 @@ class ProductListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productImages = [
-      AppImage.banner1,
-      AppImage.banner2,
-      AppImage.banner3,
+      AppImage.prod1,
+      AppImage.prod2,
+      AppImage.prod3,
+      AppImage.prod4,
     ];
 
     return Column(
@@ -58,7 +59,7 @@ class ProductListWidget extends StatelessWidget {
             SizedBox(width: 12.w),
             Expanded(
               child: ProductWidget(
-                imageUrl: productImages[0],
+                imageUrl: productImages[3],
                 title: 'Premium Leather Handbag',
                 originalPrice: '89.00',
                 currentPrice: '67.00',
