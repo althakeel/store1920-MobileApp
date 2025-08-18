@@ -32,29 +32,26 @@ class ProductWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 164.w,
-              height: 169.h,
+              width: 190.w,
+              height: 200.h,
               decoration: BoxDecoration(
                 color: AppColors.white,
+                borderRadius: BorderRadius.circular(9.r),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.black.withValues(alpha: 0.05),
+                    color: AppColors.gray.withValues(alpha: 0.5),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
                 ],
               ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(12),
-                ),
-                child: Image.asset(imageUrl, fit: BoxFit.fill),
-              ),
+              child: Image.asset(imageUrl, fit: BoxFit.fill),
             ),
+            SizedBox(height: 8.h,),
             Text(
               title,
               style: TextStyle(
-                fontSize: 9.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textGrey,
               ),
@@ -73,7 +70,7 @@ class ProductWidget extends StatelessWidget {
                         5,
                         (index) => Icon(
                           Icons.star_border,
-                          size: 12.sp,
+                          size: 10.sp,
                           color: AppColors.grey,
                         ),
                       ),
@@ -81,14 +78,14 @@ class ProductWidget extends StatelessWidget {
                     Text(
                       'Sold : 0',
                       style: TextStyle(
-                        fontSize: 9.sp,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
                         color: AppColors.textGrey,
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 6.w,
+                        horizontal: 5.w,
                         vertical: 2.h,
                       ),
                       decoration: BoxDecoration(
@@ -98,7 +95,7 @@ class ProductWidget extends StatelessWidget {
                       child: Text(
                         discount,
                         style: TextStyle(
-                          fontSize: 6.sp,
+                          fontSize: 10.sp,
                           fontWeight: FontWeight.w500,
                           color: AppColors.white,
                         ),
@@ -106,7 +103,6 @@ class ProductWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -121,7 +117,7 @@ class ProductWidget extends StatelessWidget {
                         Text(
                           originalPrice,
                           style: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 12.sp,
                             color: AppColors.textGrey,
                             decoration: TextDecoration.lineThrough,
                           ),
@@ -130,7 +126,7 @@ class ProductWidget extends StatelessWidget {
                         Text(
                           currentPrice,
                           style: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
                             color: AppColors.black,
                           ),
@@ -138,7 +134,7 @@ class ProductWidget extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.all(4),
+                      padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: AppColors.white,
                         shape: BoxShape.circle,

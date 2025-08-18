@@ -33,9 +33,10 @@ class HomeScreen extends GetView<HomeController> {
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     vertical: 16.h,
-                    horizontal: 18.w,
+                    horizontal: 12.w,
                   ),
                   child: Column(
+                    spacing: 14.h,
                     children: [
                       const IconListOfCategories(),
                       _buildAdvertisementBanner(),
@@ -60,13 +61,13 @@ class HomeScreen extends GetView<HomeController> {
 
   Widget _buildAdvertisementBanner() {
     return SizedBox(
-      width: 339.w,
-      height: 89.h,
+      width: 400.w,
+      height: 100.h,
       child: Image.asset(
-        AppImage.banner1,
+        AppImage.banner2,
         fit: BoxFit.fill,
-        cacheWidth: 339,
-        cacheHeight: 89,
+        cacheWidth: 400,
+        cacheHeight: 100,
       ),
     );
   }

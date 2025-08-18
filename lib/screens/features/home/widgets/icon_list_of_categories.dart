@@ -18,24 +18,22 @@ class IconListOfCategories extends StatelessWidget {
       {'name': 'Jeans', 'icon': Icons.checkroom},
     ];
 
-    return Container(
-      height: 60.h,
-      margin: EdgeInsets.symmetric(vertical: 8.h),
-      child: ListView.builder(
-        primary: true,
+      return SizedBox(
+        height: 60.h,
+        child: ListView.builder(
+          controller: ScrollController(),
         shrinkWrap: true,
-        physics: ScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
         itemBuilder: (context, index) {
           return Container(
-            width: 60.w,
             margin: EdgeInsets.only(right: 8.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 45.w,
-                  height: 45.h,
+                  width: 60.w,
+                  padding: EdgeInsets.all(8.r),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     shape: BoxShape.circle,
@@ -51,7 +49,7 @@ class IconListOfCategories extends StatelessWidget {
                   child: Icon(
                     categories[index]['icon'] as IconData,
                     color: AppColors.primary,
-                    size: 24.sp,
+                    size: 28.sp,
                   ),
                 ),
                 SizedBox(height: 4.h),
@@ -59,9 +57,9 @@ class IconListOfCategories extends StatelessWidget {
                   child: Text(
                     categories[index]['name'] as String,
                     style: TextStyle(
-                      fontSize: 8.h,
+                      fontSize: 12.h,
                       color: AppColors.textGrey,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w400,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -70,7 +68,7 @@ class IconListOfCategories extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
+            ),
+      );
   }
 }

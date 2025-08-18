@@ -18,9 +18,8 @@ class ProductTabsList extends StatelessWidget {
       'Shoes',
     ];
     final RxInt selectedTabIndex = RxInt(0);
-    return Container(
-      height: 22.h,
-      margin: EdgeInsets.symmetric(vertical: 9.h),
+    return SizedBox(
+      height: 24.h,
       child: ListView.builder(
         shrinkWrap: true,
         physics: ScrollPhysics(),
@@ -55,7 +54,7 @@ class ProductTabsList extends StatelessWidget {
                         if (index > 0) ...[
                           Icon(
                             Icons.shop,
-                            size: 16.sp,
+                            size: 17.sp,
                             color: selectedTabIndex.value == index
                                 ? AppColors.primary
                                 : AppColors.grey,
@@ -65,7 +64,7 @@ class ProductTabsList extends StatelessWidget {
                         Text(
                           tabs[index],
                           style: TextStyle(
-                            fontSize: 9.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: AppColors.textGrey,
                           ),

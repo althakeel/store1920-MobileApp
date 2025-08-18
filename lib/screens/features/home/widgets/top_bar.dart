@@ -17,7 +17,11 @@ class _TopBarState extends State<TopBar> {
   final ScrollController scrollController = ScrollController();
   final RxInt currentPage = RxInt(0);
   Timer? _autoScrollTimer;
-  final List<String> bannerImages = [AppImage.banner1, AppImage.banner2, AppImage.banner3];
+  final List<String> bannerImages = [
+    AppImage.banner1,
+    AppImage.banner2,
+    AppImage.banner3,
+  ];
 
   @override
   void initState() {
@@ -37,7 +41,7 @@ class _TopBarState extends State<TopBar> {
       if (mounted) {
         final nextPage = (currentPage.value + 1) % bannerImages.length;
         currentPage.value = nextPage;
-        
+
         // Animate to the next page
         final double targetOffset = nextPage * (300.w + 16.w);
         scrollController.animateTo(
@@ -52,7 +56,6 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -69,89 +72,92 @@ class _TopBarState extends State<TopBar> {
       ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      height: 10.h,
-                      width: 60.w,
-                      AppImage.appBarLogo,
-                      fit: BoxFit.contain,
-                    ),
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.location_on,
-                          color: AppColors.white,
-                          size: 10.h,
-                        ),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            'Deliver to Sheik Zayed Road, Dubai',
-                            softWrap: true,
-                            maxLines: 1,
-                            style: TextStyle(
-                              color: AppColors.white,
-                              fontSize: 10.h,
-                              fontWeight: FontWeight.w300,
-                              overflow: TextOverflow.ellipsis,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        height: 19.h,
+                        width: 132.w,
+                        AppImage.appBarLogo,
+                        fit: BoxFit.contain,
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: AppColors.white,
+                            size: 10.h,
+                          ),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              'Deliver to Sheik Zayed Road, Dubai',
+                              softWrap: true,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: AppColors.white,
+                                fontSize: 10.h,
+                                fontWeight: FontWeight.w300,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                flex: 4,
-                child: Container(
-                  height: 40.h,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.black.withValues(alpha: 0.1),
-                        blurRadius: 4,
-                        offset: const Offset(0, 1),
+                        ],
                       ),
                     ],
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Mobiles',
-                      hintStyle: TextStyle(
-                        color: AppColors.grey,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    height: 22.h,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(6),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.black.withValues(alpha: 0.1),
+                          blurRadius: 4,
+                          offset: const Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Mobiles',
+                        hintStyle: TextStyle(
+                          color: AppColors.grey,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: AppColors.grey,
+                          size: 14.sp,
+                        ),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 12.w,
+                          vertical: 7,
+                        ),
+                        isDense: true,
                       ),
-                      suffixIcon: Icon(
-                        Icons.search,
-                        color: AppColors.grey,
-                        size: 20.sp,
-                      ),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 12.w,
-                        vertical: 8,
-                      ),
-                      isDense: true,
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          const SizedBox(height: 16),
-          // Image Slider attached to top bar
+          SizedBox(height: 20.h),
           _buildImageSlider(),
         ],
       ),
@@ -183,6 +189,7 @@ class _TopBarState extends State<TopBar> {
               return Container(
                 width: 300.w,
                 height: 108.h,
+                padding: EdgeInsets.only(left: index == 0 ? 20.w : 0),
                 margin: EdgeInsets.only(
                   right: index < bannerImages.length - 1 ? 16.w : 0,
                 ),
@@ -210,7 +217,7 @@ class _TopBarState extends State<TopBar> {
           children: List.generate(bannerImages.length, (index) {
             return Obx(
               () => Container(
-                margin: EdgeInsets.symmetric(horizontal: 4.w),
+                margin: EdgeInsets.only(right: 4.w, bottom: 10.h),
                 width: 8.w,
                 height: 8.h,
                 decoration: BoxDecoration(
