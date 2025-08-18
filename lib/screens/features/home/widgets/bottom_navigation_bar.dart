@@ -72,7 +72,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               style: TextStyle(
                 color: isSelected ? AppColors.primary : Colors.grey,
                 fontSize: 12.sp,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                fontWeight: isSelected ? FontWeight.w800 : FontWeight.w400,
               ),
             ),
           ],

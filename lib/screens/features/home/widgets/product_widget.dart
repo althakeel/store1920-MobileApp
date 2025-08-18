@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
 import '../../../../global/images.dart';
 import '../../../../routes/app_routes.dart';
 
@@ -39,7 +40,7 @@ class ProductWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(9.r),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.gray.withValues(alpha: 0.5),
+                    color: AppColors.grey.withValues(alpha: 0.5),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
@@ -47,14 +48,10 @@ class ProductWidget extends StatelessWidget {
               ),
               child: Image.asset(imageUrl, fit: BoxFit.fill),
             ),
-            SizedBox(height: 8.h,),
+            SizedBox(height: 8.h),
             Text(
               title,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w600,
-                color: AppColors.textGrey,
-              ),
+              style: subTitleStyle.copyWith(fontSize: 12.sp),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -77,11 +74,7 @@ class ProductWidget extends StatelessWidget {
                     ),
                     Text(
                       'Sold : 0',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textGrey,
-                      ),
+                      style: bodyStyle.copyWith(fontWeight: FontWeight.w600),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(
@@ -116,20 +109,14 @@ class ProductWidget extends StatelessWidget {
                         SizedBox(width: 8.w),
                         Text(
                           originalPrice,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: AppColors.textGrey,
+                          style: bodyStyle.copyWith(
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
                         SizedBox(width: 4.w),
                         Text(
                           currentPrice,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.black,
-                          ),
+                          style: titleStyle.copyWith(fontSize: 12.sp)
                         ),
                       ],
                     ),

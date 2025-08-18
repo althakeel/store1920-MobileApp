@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
 import '../controllers/product_detail_controller.dart';
 import 'product_header.dart';
 
@@ -83,11 +84,7 @@ class ProductImageCarousel extends GetView<ProductDetailController> {
                     SizedBox(width: 4.w),
                     Text(
                       '${controller.products.value.rating}',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textGrey,
-                      ),
+                      style: subHeaderStyle.copyWith(color: AppColors.textGrey),
                     ),
                   ],
                 ),

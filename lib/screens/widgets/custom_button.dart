@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../global/app_color.dart';
+import '../../global/constant_styles.dart';
 
-class InActiveButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final void Function() onTap;
   final int? selectedIndex;
+  final int? index;
   final String? btnTitle;
   final double height;
   final double width;
 
-  const InActiveButton({
+  const CustomButton({
     required this.onTap,
     this.selectedIndex,
     this.btnTitle,
+    this.index,
     this.height = 30,
     this.width = 190,
     super.key,
@@ -28,16 +31,16 @@ class InActiveButton extends StatelessWidget {
         height: height.h,
         width: width.w,
         decoration: BoxDecoration(
-          color: selectedIndex == 1 ? AppColors.secondary : AppColors.borderGrey,
+          color: selectedIndex == index
+              ? AppColors.secondary
+              : AppColors.borderGrey,
           borderRadius: BorderRadius.circular(4.r),
         ),
         child: Center(
           child: Text(
             btnTitle ?? '',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: selectedIndex == 1 ? AppColors.white : AppColors.textGrey,
+            style: subHeaderStyle.copyWith(
+              color: selectedIndex == index ? AppColors.white : AppColors.black,
             ),
           ),
         ),

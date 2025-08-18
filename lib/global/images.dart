@@ -41,21 +41,6 @@ abstract class AppImage {
   static String get prod7 => 'prod_7'.prodPng;
 
   static String get prod8 => 'prod_8'.prodPng;
-
-  static String get calendar => 'calendar'.svg;
-
-  static String get cameraSvg => 'camera'.svg;
-
-  static String get arrowDown => 'arrow_down'.svg;
-
-  static String get backArrow => 'back_arrow'.svg;
-
-  static String get editIcon => 'edit_icon'.svg;
-
-  // images
-  static String get topImage => 'top_image'.imageJpg;
-
-  static String get bottomImage => 'lower_image'.imageJpg;
 }
 
 extension on String {
@@ -69,7 +54,7 @@ extension on String {
   // String get logoPng => 'assets/logos/$this.png';
 
   ///for svg folder
-  String get svg => 'assets/svgs/$this.svg';
+  // String get svg => 'assets/svgs/$this.svg';
 
   ///for logo folder
   String get imageJpg => 'assets/images/$this.jpg';

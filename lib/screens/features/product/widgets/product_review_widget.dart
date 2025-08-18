@@ -124,7 +124,7 @@ class ProductReviewWidget extends StatelessWidget {
                           children: [
                             Image.asset(
                               AppImage.menuIcon,
-                              color: AppColors.gray,
+                              color: AppColors.grey,
                             ),
                             SizedBox(width: 8.w),
                             Text(
@@ -140,7 +140,7 @@ class ProductReviewWidget extends StatelessWidget {
                           children: [
                             Image.asset(
                               AppImage.menuIcon,
-                              color: AppColors.gray,
+                              color: AppColors.grey,
                             ),
                             SizedBox(width: 8.w),
                             Text(

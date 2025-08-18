@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
 import '../../../../global/images.dart';
 import '../controllers/product_detail_controller.dart';
 
@@ -31,14 +32,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Sizes',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: AppColors.textGrey,
-                            ),
-                          ),
+                          Text('Sizes', style: bodyStyle),
                           SizedBox(height: 8.h),
                           _buildSizesGrid(),
                         ],
@@ -48,14 +42,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Qty',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.textGrey,
-                          ),
-                        ),
+                        Text('Qty', style: bodyStyle),
                         SizedBox(height: 8.h),
                         Container(
                           padding: EdgeInsets.symmetric(
@@ -81,11 +68,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
                               Obx(
                                 () => Text(
                                   '${controller.quantity.value}',
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.black,
-                                  ),
+                                  style: subTitleStyle,
                                 ),
                               ),
                               SizedBox(width: 12.w),

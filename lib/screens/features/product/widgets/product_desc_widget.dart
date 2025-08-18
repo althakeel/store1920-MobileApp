@@ -5,6 +5,7 @@ import 'package:store1920/global/images.dart';
 import 'package:store1920/screens/features/product/models/product_model.dart';
 
 import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
 
 class ProductDescWidget extends StatelessWidget {
   final ProductModel products;
@@ -19,22 +20,10 @@ class ProductDescWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 5.h),
-          Text(
-            'About this item',
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textGrey,
-            ),
-          ),
+          Text('About this item', style: subTitleStyle),
           Text(
             products.description ?? '',
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: AppColors.textGrey,
-              fontWeight: FontWeight.w400,
-              height: 1.5,
-            ),
+            style: bodyStyle.copyWith(height: 1.5),
           ),
           SizedBox(height: 12.h),
           if (products.specifications != null) ...[
@@ -56,14 +45,7 @@ class ProductDescWidget extends StatelessWidget {
             ),
           ],
           Divider(thickness: 1.5, color: AppColors.borderGrey),
-          Text(
-            'Product Details',
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textGrey,
-            ),
-          ),
+          Text('Product Details', style: subTitleStyle),
           SizedBox(height: 12.h),
           Row(
             children: List.generate(
@@ -83,20 +65,9 @@ class ProductDescWidget extends StatelessWidget {
                       SizedBox(height: 8.h),
                       Text(
                         'Lorem Ipsum',
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: titleStyle.copyWith(fontSize: 12.sp),
                       ),
-                      Text(
-                        'Lorem Ipsum lorem',
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: AppColors.textGrey,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                      Text('Lorem Ipsum lorem', style: bodyStyle),
                     ],
                   ),
                 ),
@@ -105,15 +76,7 @@ class ProductDescWidget extends StatelessWidget {
           ),
 
           SizedBox(height: 24.h),
-          Text(
-            'More Details',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: AppColors.black,
-            ),
-          ),
-
+          Text('More Details', style: subHeaderStyle),
           SizedBox(height: 100.h), // Bottom padding
         ],
       ),
@@ -128,25 +91,13 @@ class ProductDescWidget extends StatelessWidget {
         children: [
           SizedBox(
             width: Get.width * 0.5.w,
-            child: Text(
-              '$label:',
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColors.textGrey,
-                height: 2,
-              ),
-            ),
+            child: Text('$label:', style: bodyStyle.copyWith()),
           ),
           Expanded(
             child: Text(
               ': $value',
               softWrap: true,
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: AppColors.textGrey,
-                height: 2,
-              ),
+              style: bodyStyle.copyWith(height: 1.5),
               maxLines: 2,
             ),
           ),

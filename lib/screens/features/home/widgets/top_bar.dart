@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/global/constant_styles.dart';
 import 'dart:async';
 
 import '../../../../global/app_color.dart';
@@ -134,11 +135,7 @@ class _TopBarState extends State<TopBar> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Mobiles',
-                        hintStyle: TextStyle(
-                          color: AppColors.grey,
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        hintStyle: bodyStyle,
                         suffixIcon: Icon(
                           Icons.search,
                           color: AppColors.grey,

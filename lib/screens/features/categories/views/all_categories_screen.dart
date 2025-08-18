@@ -1,0 +1,143 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:store1920/screens/features/categories/widgets/category_item_widget.dart';
+import 'package:store1920/screens/widgets/custom_app_bar.dart';
+import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
+import '../controllers/all_categories_controller.dart';
+import '../widgets/category_grid_item.dart';
+
+class AllCategoriesScreen extends GetView<AllCategoriesController> {
+  const AllCategoriesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            CustomAppBar(),
+            _buildSearchBar(),
+            SizedBox(height: 20.h),
+            Expanded(child: _buildMainContent()),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSearchBar() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 18.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      decoration: BoxDecoration(
+        color: AppColors.grey.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.borderGrey),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.search, size: 20.sp, color: AppColors.textGrey),
+          SizedBox(width: 12.w),
+          Expanded(child: Text('Search Store 1920', style: subTitleStyle)),
+          Icon(
+            Icons.camera_alt_outlined,
+            size: 20.sp,
+            color: AppColors.textGrey,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMainContent() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18.w),
+      child: Row(
+        children: [
+          Expanded(flex: 1, child: _buildMainCategories()),
+          SizedBox(width: 16.w),
+          Expanded(flex: 3, child: _buildSubCategories()),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMainCategories() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Categories', style: subHeaderStyle),
+        SizedBox(height: 12.h),
+        Expanded(
+          child: ListView.builder(
+            itemCount: controller.mainCategories.length,
+            itemBuilder: (context, index) {
+              final category = controller.mainCategories[index];
+              return Obx(
+                () => CategoryItemWidget(
+                  category: category,
+                  index: index,
+                  selectedMainCategoryIndex:
+                      controller.selectedMainCategoryIndex.value,
+                  onTap: () => controller.selectMainCategory(index),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSubCategories() {
+    return Obx(() {
+      final selectedCategory = controller.selectedMainCategoryIndex.value >= 0
+          ? controller.mainCategories[controller
+                .selectedMainCategoryIndex
+                .value]
+          : null;
+
+      if (selectedCategory == null) {
+        return Center(
+          child: Text(
+            'Select a category to view subcategories',
+            style: subTitleStyle,
+          ),
+        );
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Sub Categories', style: subHeaderStyle),
+          SizedBox(height: 12.h),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 12.w,
+                mainAxisSpacing: 12.h,
+                childAspectRatio: 0.8,
+              ),
+              itemCount: controller
+                  .getSubCategories(selectedCategory['name'])
+                  .length,
+              itemBuilder: (context, index) {
+                final subCategory = controller.getSubCategories(
+                  selectedCategory['name'],
+                )[index];
+                return CategoryGridItem(
+                  category: subCategory,
+                  onTap: () => controller.selectSubCategory(index),
+                );
+              },
+            ),
+          ),
+        ],
+      );
+    });
+  }
+}

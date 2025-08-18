@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
 
 class ProductTabsList extends StatelessWidget {
   const ProductTabsList({super.key});
@@ -61,14 +62,7 @@ class ProductTabsList extends StatelessWidget {
                           ),
                           SizedBox(width: 4.w),
                         ],
-                        Text(
-                          tabs[index],
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.textGrey,
-                          ),
-                        ),
+                        Text(tabs[index], style: bodyStyle),
                       ],
                     ),
                   ),

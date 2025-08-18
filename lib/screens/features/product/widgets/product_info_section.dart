@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../../global/app_color.dart';
+import 'package:store1920/global/constant_styles.dart';
 import '../../../../global/images.dart';
 import '../controllers/product_detail_controller.dart';
 
@@ -22,19 +22,12 @@ class ProductInfoSection extends GetView<ProductDetailController> {
               children: [
                 Text(
                   'Brand: ${controller.products.value.brand ?? ''}',
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: AppColors.textGrey,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: subTitleStyle.copyWith(fontSize: 12.sp),
                 ),
                 Text(
                   controller.products.value.title ?? '',
                   softWrap: true,
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.black,
+                  style: subHeaderStyle.copyWith(
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -46,11 +39,8 @@ class ProductInfoSection extends GetView<ProductDetailController> {
             children: [
               Text(
                 '\$${controller.products.value.originalPrice}',
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  color: AppColors.textGrey,
+                style: bodyStyle.copyWith(
                   decoration: TextDecoration.lineThrough,
-                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(width: 5.w),
@@ -58,11 +48,7 @@ class ProductInfoSection extends GetView<ProductDetailController> {
                 children: [
                   Text(
                     '${controller.products.value.currentPrice}',
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black,
-                    ),
+                    style: headerStyle,
                   ),
                   SizedBox(width: 5.w),
                   Image.asset(AppImage.currencyIcon, width: 13.w, height: 11.h),
