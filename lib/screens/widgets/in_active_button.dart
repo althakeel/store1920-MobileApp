@@ -13,8 +13,8 @@ class InActiveButton extends StatelessWidget {
     required this.onTap,
     this.selectedIndex,
     this.btnTitle,
-    this.height = 40,
-    this.width = 160,
+    this.height = 30,
+    this.width = 190,
     super.key,
   });
 
@@ -28,16 +28,16 @@ class InActiveButton extends StatelessWidget {
         height: height.h,
         width: width.w,
         decoration: BoxDecoration(
-          color: selectedIndex == 1 ? AppColors.secondary : Colors.grey[200],
-          borderRadius: BorderRadius.circular(8),
+          color: selectedIndex == 1 ? AppColors.secondary : AppColors.borderGrey,
+          borderRadius: BorderRadius.circular(4.r),
         ),
         child: Center(
           child: Text(
             btnTitle ?? '',
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: selectedIndex == 1 ? AppColors.white : AppColors.black,
+              color: selectedIndex == 1 ? AppColors.white : AppColors.textGrey,
             ),
           ),
         ),

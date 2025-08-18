@@ -1,70 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:store1920/screens/features/product/widgets/product_desc_widget.dart';
-import 'package:store1920/screens/features/product/widgets/product_review_widget.dart';
-import 'package:store1920/screens/widgets/active_button.dart';
+
 import '../../../../global/app_color.dart';
 import '../../../../global/images.dart';
-import '../../../widgets/in_active_button.dart';
-import '../controllers/product_detail_controller.dart';
+import '../models/product_model.dart';
 
-class ProductTabsSection extends GetView<ProductDetailController> {
-  const ProductTabsSection({super.key});
+class ProductReviewWidget extends StatelessWidget {
+  final ProductModel products;
+
+  const ProductReviewWidget({required this.products, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18.w),
-          child: Row(
-            children: [
-              Expanded(
-                child: Obx(
-                  () => ActiveButton(
-                    onTap: () {
-                      controller.changeTab(0);
-                    },
-                    selectedIndex: controller.selectedTabIndex.value,
-                    btnTitle: 'Description',
-                  ),
-                ),
-              ),
-              SizedBox(width: 12.w),
-              Expanded(
-                child: Obx(
-                  () => InActiveButton(
-                    onTap: () {
-                      controller.changeTab(1);
-                    },
-                    selectedIndex: controller.selectedTabIndex.value,
-                    btnTitle: 'Reviews',
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 10.h),
-        // Tab content
-        Obx(
-          () => controller.selectedTabIndex.value == 0
-              ? ProductDescWidget(products: controller.products.value)
-              : ProductReviewWidget(products: controller.products.value),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildReviewsContent() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 18.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (controller.products.value.reviews != null)
-            ...controller.products.value.reviews!.map(
+          if (products.reviews != null)
+            ...products.reviews!.map(
               (review) => Container(
                 margin: EdgeInsets.only(bottom: 20.h),
                 padding: EdgeInsets.all(16.w),
@@ -77,23 +31,39 @@ class ProductTabsSection extends GetView<ProductDetailController> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              review.name ?? '',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.black,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                AppImage.companyLogo,
+                                width: 21.w,
+                                height: 21.h,
                               ),
                             ),
-                            Text(
-                              'on ${review.date}',
-                              style: TextStyle(
-                                fontSize: 12.sp,
-                                color: Colors.grey[600],
-                              ),
+                            SizedBox(width: 5.w,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  review.name ?? '',
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.black,
+                                  ),
+                                ),
+                                Text(
+                                  'on ${review.date}',
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -136,19 +106,17 @@ class ProductTabsSection extends GetView<ProductDetailController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10.h),
-
+                    SizedBox(height: 5.h),
                     Text(
                       review.text ?? '',
                       style: TextStyle(
-                        fontSize: 14.sp,
-                        color: Colors.grey[700],
-                        height: 1.4,
+                        fontSize: 12.sp,
+                        color: AppColors.textGrey,
+                        height: 1.5,
+                        fontWeight: FontWeight.w400
                       ),
                     ),
-
                     SizedBox(height: 12.h),
-
                     Row(
                       spacing: 10,
                       children: [
@@ -168,7 +136,6 @@ class ProductTabsSection extends GetView<ProductDetailController> {
                             ),
                           ],
                         ),
-                        Divider(color: AppColors.gray, thickness: 1.5),
                         Row(
                           children: [
                             Image.asset(

@@ -7,6 +7,7 @@ class ProductDetailController extends GetxController {
   RxInt selectedTabIndex = 0.obs;
   RxInt currentImageIndex = 0.obs;
   RxInt selectedSizeIndex = 0.obs;
+  RxInt selectedColorIndex = 0.obs;
   RxInt quantity = 1.obs;
   Rx<ProductModel> products = Rx(ProductModel());
   final product = {
@@ -25,7 +26,7 @@ class ProductDetailController extends GetxController {
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     'specifications': {
       'Sole material': '14% Synthetic; 86% Textile',
-      'Outer material': 'Textile',
+      'Outer material': '14% Synthetic; 86% Textile',
       'Closure type': 'Lace-Up',
       'Water resistance level': 'Not Water Resistant',
     },
@@ -61,6 +62,10 @@ class ProductDetailController extends GetxController {
     selectedSizeIndex.value = index;
   }
 
+  void changeColor(int index) {
+    selectedColorIndex.value = index;
+  }
+
   void increaseQuantity() {
     quantity.value++;
   }
@@ -71,3 +76,4 @@ class ProductDetailController extends GetxController {
     }
   }
 }
+

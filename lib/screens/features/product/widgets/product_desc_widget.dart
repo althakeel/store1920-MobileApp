@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:store1920/global/images.dart';
 import 'package:store1920/screens/features/product/models/product_model.dart';
 
 import '../../../../global/app_color.dart';
@@ -16,28 +18,25 @@ class ProductDescWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // About this item
+          SizedBox(height: 5.h),
           Text(
             'About this item',
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w600,
               color: AppColors.textGrey,
             ),
           ),
-          SizedBox(height: 4.h),
           Text(
             products.description ?? '',
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 12.sp,
               color: AppColors.textGrey,
               fontWeight: FontWeight.w400,
               height: 1.5,
             ),
           ),
-
-          SizedBox(height: 24.h),
-          // Specifications list
+          SizedBox(height: 12.h),
           if (products.specifications != null) ...[
             _buildSpecificationItem(
               'Sole material',
@@ -56,46 +55,46 @@ class ProductDescWidget extends StatelessWidget {
               products.specifications!.waterResistanceLevel ?? '',
             ),
           ],
-
-          SizedBox(height: 24.h),
-
-          // Product details boxes
+          Divider(thickness: 1.5, color: AppColors.borderGrey),
           Text(
             'Product Details',
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.black,
+              color: AppColors.textGrey,
             ),
           ),
-
           SizedBox(height: 12.h),
-
           Row(
             children: List.generate(
               3,
               (index) => Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: index < 2 ? 8.w : 0),
-                  height: 80.h,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.grid_view,
-                        size: 24.sp,
-                        color: Colors.grey[600],
+                      Image.asset(
+                        AppImage.menuIcon,
+                        width: 23.w,
+                        height: 23.h,
+                        color: AppColors.black,
                       ),
                       SizedBox(height: 8.h),
                       Text(
                         'Lorem Ipsum',
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: Colors.grey[600],
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'Lorem Ipsum lorem',
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.textGrey,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -106,8 +105,6 @@ class ProductDescWidget extends StatelessWidget {
           ),
 
           SizedBox(height: 24.h),
-
-          // More details
           Text(
             'More Details',
             style: TextStyle(
@@ -130,21 +127,26 @@ class ProductDescWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 110.w,
+            width: Get.width * 0.5.w,
             child: Text(
               '$label:',
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w400,
                 color: AppColors.textGrey,
+                height: 2,
               ),
             ),
           ),
           Expanded(
             child: Text(
-              value,
+              ': $value',
               softWrap: true,
-              style: TextStyle(fontSize: 14.sp, color: AppColors.black),
+              style: TextStyle(
+                fontSize: 12.sp,
+                color: AppColors.textGrey,
+                height: 2,
+              ),
               maxLines: 2,
             ),
           ),

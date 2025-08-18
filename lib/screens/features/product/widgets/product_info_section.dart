@@ -14,12 +14,12 @@ class ProductInfoSection extends GetView<ProductDetailController> {
       padding: EdgeInsets.symmetric(horizontal: 18.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Brand
                 Text(
                   'Brand: ${controller.products.value.brand ?? ''}',
                   style: TextStyle(
@@ -32,9 +32,9 @@ class ProductInfoSection extends GetView<ProductDetailController> {
                   controller.products.value.title ?? '',
                   softWrap: true,
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.textGrey,
+                    color: AppColors.black,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -59,7 +59,7 @@ class ProductInfoSection extends GetView<ProductDetailController> {
                   Text(
                     '${controller.products.value.currentPrice}',
                     style: TextStyle(
-                      fontSize: 18.sp,
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.black,
                     ),

@@ -8,3 +8,4 @@ class ProductDetailBinding extends Bindings {
   }
 }
 
+

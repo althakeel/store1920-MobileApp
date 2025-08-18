@@ -5,6 +5,7 @@ import '../../../../global/app_color.dart';
 import '../controllers/product_detail_controller.dart';
 import '../widgets/product_image_carousel.dart';
 import '../widgets/product_info_section.dart';
+import '../widgets/product_options_section.dart';
 import '../widgets/product_tabs_section.dart';
 
 class ProductDetailScreen extends GetView<ProductDetailController> {
@@ -23,9 +24,10 @@ class ProductDetailScreen extends GetView<ProductDetailController> {
                 child: Column(
                   children: [
                     const ProductImageCarousel(),
+                    const ProductOptionsSection(),
+                    SizedBox(height: 10.h),
                     const ProductInfoSection(),
                     SizedBox(height: 10.h),
-                    // const ProductOptionsSection(),
                     const ProductTabsSection(),
                   ],
                 ),
