@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/app_color.dart';
 import '../../../../global/constant_styles.dart';
 import '../../../../global/images.dart';
-import '../controllers/product_detail_controller.dart';
 
-class ProductOptionsSection extends GetView<ProductDetailController> {
+class ProductOptionsSection extends GetView<ProductController> {
   const ProductOptionsSection({super.key});
 
   @override
@@ -66,7 +66,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
                               ),
                               SizedBox(width: 12.w),
                               Obx(
-                                () => Text(
+                                    () => Text(
                                   '${controller.quantity.value}',
                                   style: subTitleStyle,
                                 ),
@@ -101,8 +101,8 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
 
     return Column(
       children: List.generate((sizes.length / maxSizesPerRow).ceil(), (
-        rowIndex,
-      ) {
+          rowIndex,
+          ) {
         final startIndex = rowIndex * maxSizesPerRow;
         final endIndex = (startIndex + maxSizesPerRow).clamp(0, sizes.length);
         final rowSizes = sizes.sublist(startIndex, endIndex);
@@ -124,7 +124,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
                         : 0,
                   ),
                   child: Obx(
-                    () => GestureDetector(
+                        () => GestureDetector(
                       onTap: () => controller.selectSize(index),
                       child: Container(
                         height: 24.h,
@@ -170,7 +170,7 @@ class ProductOptionsSection extends GetView<ProductDetailController> {
     ];
 
     return Obx(
-      () => Row(
+          () => Row(
         children: [
           if (controller.selectedColorIndex.value > 0)
             GestureDetector(

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:store1920/global/constant_styles.dart';
+import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/images.dart';
-import '../controllers/product_detail_controller.dart';
 
-class ProductInfoSection extends GetView<ProductDetailController> {
+class ProductInfoSection extends GetView<ProductController> {
   const ProductInfoSection({super.key});
 
   @override

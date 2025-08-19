@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import 'package:store1920/screens/features/product/widgets/product_desc_widget.dart';
 import 'package:store1920/screens/features/product/widgets/product_review_widget.dart';
 import 'package:store1920/screens/widgets/custom_button.dart';
-import '../controllers/product_detail_controller.dart';
 
-class ProductTabsSection extends GetView<ProductDetailController> {
+class ProductTabsSection extends GetView<ProductController> {
   const ProductTabsSection({super.key});
 
   @override
@@ -46,7 +46,6 @@ class ProductTabsSection extends GetView<ProductDetailController> {
           ),
         ),
         SizedBox(height: 10.h),
-        // Tab content
         Obx(
           () => controller.selectedTabIndex.value == 0
               ? ProductDescWidget(products: controller.products.value)

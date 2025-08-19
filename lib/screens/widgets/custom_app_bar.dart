@@ -6,7 +6,9 @@ import 'package:store1920/global/constant_styles.dart';
 import '../../global/app_color.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  final String title;
+
+  const CustomAppBar({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,7 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Text(
-            'All Categories',
-            style: titleStyle
-          ),
+          Text(title, style: titleStyle),
           const Spacer(),
           SizedBox(width: 20.w), // Balance the back button
         ],

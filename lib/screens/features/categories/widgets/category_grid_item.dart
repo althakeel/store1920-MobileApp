@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:store1920/global/constant_styles.dart';
 import '../../../../global/app_color.dart';
+import '../../../../routes/app_routes.dart';
 
 class CategoryGridItem extends StatelessWidget {
   final Map<String, dynamic> category;
@@ -21,7 +23,10 @@ class CategoryGridItem extends StatelessWidget {
     final color = category['color'] ?? AppColors.primary;
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        onTap();
+        Get.toNamed(AppRoutes.productList);
+      },
       child: Column(
         children: [
           Container(

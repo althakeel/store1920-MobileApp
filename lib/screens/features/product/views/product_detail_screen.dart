@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/app_color.dart';
-import '../controllers/product_detail_controller.dart';
 import '../widgets/product_image_carousel.dart';
 import '../widgets/product_info_section.dart';
 import '../widgets/product_options_section.dart';
 import '../widgets/product_tabs_section.dart';
 
-class ProductDetailScreen extends GetView<ProductDetailController> {
+class ProductDetailScreen extends GetView<ProductController> {
   const ProductDetailScreen({super.key});
 
   @override

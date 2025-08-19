@@ -1,0 +1,155 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import '../../../../global/app_color.dart';
+import '../../../../global/constant_styles.dart';
+import '../../../../global/images.dart';
+import '../../../../routes/app_routes.dart';
+
+class ProductWidget extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String originalPrice;
+  final String currentPrice;
+  final String discount;
+  final String sold;
+
+  const ProductWidget({
+    super.key,
+    required this.imageUrl,
+    required this.title,
+    required this.originalPrice,
+    required this.currentPrice,
+    required this.discount,
+    required this.sold,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Get.toNamed(AppRoutes.productDetail),
+      child: RepaintBoundary(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              height: 170.h,
+              width: 180.w,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(9.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.grey.withValues(alpha: 0.5),
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Image.asset(imageUrl, fit: BoxFit.fill),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 4.0, right: 4.0, left: 4.0),
+              child: Text(
+                title,
+                style: subTitleStyle.copyWith(fontSize: 12.sp),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Divider(color: AppColors.borderGrey, thickness: 1.5,),
+            Padding(
+              padding: const EdgeInsets.symmetric( horizontal:  4.0, vertical: 0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: List.generate(
+                          5,
+                          (index) => Icon(
+                            Icons.star_border,
+                            size: 10.sp,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        'Sold : 0',
+                        style: bodyStyle.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 5.w,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.secondary,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          discount,
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            AppImage.currencyIcon,
+                            width: 11.5.w,
+                            height: 10.h,
+                          ),
+                          SizedBox(width: 8.w),
+                          Text(
+                            originalPrice,
+                            style: bodyStyle.copyWith(
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          ),
+                          SizedBox(width: 4.w),
+                          Text(
+                            currentPrice,
+                            style: titleStyle.copyWith(fontSize: 12.sp)
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: AppColors.border),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.black.withValues(alpha: 0.05),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset(
+                          AppImage.cartIcon,
+                          width: 8.w,
+                          height: 8.h,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/app_color.dart';
 import '../../../../global/constant_styles.dart';
-import '../controllers/product_detail_controller.dart';
 import 'product_header.dart';
 
-class ProductImageCarousel extends GetView<ProductDetailController> {
+class ProductImageCarousel extends GetView<ProductController> {
   const ProductImageCarousel({super.key});
 
   @override
@@ -60,8 +60,8 @@ class ProductImageCarousel extends GetView<ProductDetailController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                       controller.products.value.images?.length ?? 0,
-                      (index) => Obx(
-                        () => Container(
+                          (index) => Obx(
+                            () => Container(
                           margin: EdgeInsets.only(right: 8.w),
                           width: controller.currentImageIndex.value == index
                               ? 12.w
