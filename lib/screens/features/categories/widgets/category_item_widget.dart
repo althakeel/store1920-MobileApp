@@ -27,10 +27,10 @@ class CategoryItemWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 8.h),
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary : AppColors.white,
+          color: isSelected ? AppColors.dynamicColor : AppColors.white,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: isSelected ? AppColors.primary : AppColors.borderGrey,
+            color: isSelected ? AppColors.dynamicColor : AppColors.borderGrey,
             width: isSelected ? 2 : 1,
           ),
         ),

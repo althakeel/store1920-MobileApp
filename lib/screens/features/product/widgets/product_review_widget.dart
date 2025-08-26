@@ -90,14 +90,14 @@ class ProductReviewWidget extends StatelessWidget {
                                 vertical: 4.h,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.primary.withValues(alpha: 0.1),
+                                color: AppColors.dynamicColor.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(
                                 review.purchase ?? '',
                                 style: TextStyle(
                                   fontSize: 12.sp,
-                                  color: AppColors.primary,
+                                  color: AppColors.dynamicColor,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),

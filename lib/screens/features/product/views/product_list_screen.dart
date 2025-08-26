@@ -26,7 +26,7 @@ class ProductListScreen extends GetView<ProductController> {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(title: 'Product List'),
+            // CustomAppBar(title: 'Product List'),
             CustomSearchBar(),
             _buildFilterSection(),
             Expanded(child: _buildProductGrid()),

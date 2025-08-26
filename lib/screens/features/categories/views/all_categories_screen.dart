@@ -19,7 +19,7 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(title: 'All Categories'),
+            // CustomAppBar(title: 'All Categories'),
             CustomSearchBar(),
             SizedBox(height: 20.h),
             Expanded(child: _buildMainContent()),

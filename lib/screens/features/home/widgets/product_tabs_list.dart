@@ -20,7 +20,7 @@ class ProductTabsList extends StatelessWidget {
     ];
     final RxInt selectedTabIndex = RxInt(0);
     return SizedBox(
-      height: 24.h,
+      height: 28.h,
       child: ListView.builder(
         shrinkWrap: true,
         physics: ScrollPhysics(),
@@ -36,7 +36,7 @@ class ProductTabsList extends StatelessWidget {
                     selectedTabIndex.value = index;
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
                     decoration: BoxDecoration(
                       color: AppColors.grey.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(4),
@@ -62,7 +62,15 @@ class ProductTabsList extends StatelessWidget {
                           ),
                           SizedBox(width: 4.w),
                         ],
-                        Text(tabs[index], style: bodyStyle),
+                        Text(
+                          tabs[index],
+                          style: subHeaderStyle.copyWith(
+                            color: selectedTabIndex.value == index
+                                ? AppColors.primary
+                                : AppColors.grey,
+                            fontSize: 16.sp,
+                          ),
+                        ),
                       ],
                     ),
                   ),

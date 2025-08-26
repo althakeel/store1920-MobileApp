@@ -26,7 +26,7 @@ class FilterSection extends GetView<ProductController> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: AppColors.dynamicColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -67,10 +67,10 @@ class FilterSection extends GetView<ProductController> {
                 margin: EdgeInsets.only(right: 8.w),
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                 decoration: BoxDecoration(
-                  color: isSelected ? AppColors.primary : AppColors.white,
+                  color: isSelected ? AppColors.dynamicColor : AppColors.white,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: isSelected ? AppColors.primary : AppColors.borderGrey,
+                    color: isSelected ? AppColors.dynamicColor : AppColors.borderGrey,
                     width: 1,
                   ),
                 ),

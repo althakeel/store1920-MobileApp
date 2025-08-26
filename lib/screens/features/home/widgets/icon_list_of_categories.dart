@@ -22,7 +22,7 @@ class IconListOfCategories extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: 60.h,
+      height: 65.h,
       child: ListView.builder(
         controller: ScrollController(),
         shrinkWrap: true,

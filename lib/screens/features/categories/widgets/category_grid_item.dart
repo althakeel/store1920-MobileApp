@@ -20,7 +20,7 @@ class CategoryGridItem extends StatelessWidget {
     final isSelected = category['isSelected'] ?? false;
     final hasBadge = category['hasBadge'] ?? false;
     final badgeIcon = category['badgeIcon'];
-    final color = category['color'] ?? AppColors.primary;
+    final color = category['color'] ?? AppColors.dynamicColor;
 
     return GestureDetector(
       onTap: () {

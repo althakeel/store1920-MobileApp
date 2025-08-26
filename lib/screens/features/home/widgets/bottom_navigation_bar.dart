@@ -57,22 +57,21 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(index),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+        padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
               icon,
               color: isSelected ? AppColors.primary : Colors.grey,
-              // size: 24.sp,
             ),
             SizedBox(height: 4.h),
             Text(
               label,
               style: TextStyle(
                 color: isSelected ? AppColors.primary : Colors.grey,
-                fontSize: 12.sp,
-                fontWeight: isSelected ? FontWeight.w800 : FontWeight.w400,
+                fontSize: 18.sp,
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
               ),
             ),
           ],

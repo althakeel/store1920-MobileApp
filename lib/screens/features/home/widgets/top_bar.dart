@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:store1920/global/constant_styles.dart';
 import 'dart:async';
 
 import '../../../../global/app_color.dart';
@@ -61,7 +60,7 @@ class _TopBarState extends State<TopBar> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [AppColors.gradient1, AppColors.gradient2],
+          colors: [AppColors.dynamicColor.withValues(alpha: .8), AppColors.gradient1],
         ),
         boxShadow: [
           BoxShadow(
@@ -75,86 +74,7 @@ class _TopBarState extends State<TopBar> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 16),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        height: 19.h,
-                        width: 132.w,
-                        AppImage.appBarLogo,
-                        fit: BoxFit.contain,
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: AppColors.white,
-                            size: 10.h,
-                          ),
-                          const SizedBox(width: 4),
-                          Expanded(
-                            child: Text(
-                              'Deliver to Sheik Zayed Road, Dubai',
-                              softWrap: true,
-                              maxLines: 1,
-                              style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 10.h,
-                                fontWeight: FontWeight.w300,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    height: 22.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(6),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.black.withValues(alpha: 0.1),
-                          blurRadius: 4,
-                          offset: const Offset(0, 1),
-                        ),
-                      ],
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Mobiles',
-                        hintStyle: bodyStyle,
-                        suffixIcon: Icon(
-                          Icons.search,
-                          color: AppColors.grey,
-                          size: 14.sp,
-                        ),
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 12.w,
-                          vertical: 7,
-                        ),
-                        isDense: true,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
-          SizedBox(height: 20.h),
           _buildImageSlider(),
         ],
       ),
@@ -176,7 +96,7 @@ class _TopBarState extends State<TopBar> {
     return Column(
       children: [
         SizedBox(
-          height: 108.h,
+          height: 120.h,
           child: ListView.builder(
             controller: scrollController,
             scrollDirection: Axis.horizontal,
@@ -200,10 +120,10 @@ class _TopBarState extends State<TopBar> {
                     ),
                   ],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(bannerImages[index], fit: BoxFit.cover),
-                ),
+                // child: ClipRRect(
+                //   borderRadius: BorderRadius.circular(16),
+                //   child: Image.asset(bannerImages[index], fit: BoxFit.cover),
+                // ),
               );
             },
           ),

@@ -50,8 +50,8 @@ class ProductListWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 9.w),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 18.w,
-        mainAxisSpacing: 18.h,
+        crossAxisSpacing: 8.w,
+        // mainAxisSpacing: 18.h,
         childAspectRatio: aspectRatio,
       ),
       itemCount: products.length,

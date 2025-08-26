@@ -7,19 +7,19 @@ class AllCategoriesController extends GetxController {
   RxInt selectedSubCategoryIndex = 0.obs;
 
   final List<Map<String, dynamic>> mainCategories = [
-    {'name': 'Fashion', 'icon': Icons.style, 'color': AppColors.primary},
+    {'name': 'Fashion', 'icon': Icons.style, 'color': AppColors.dynamicColor},
     {
       'name': 'Electronics',
       'icon': Icons.phone_android,
       'color': AppColors.secondary,
     },
-    {'name': 'Home & Garden', 'icon': Icons.home, 'color': AppColors.primary},
+    {'name': 'Home & Garden', 'icon': Icons.home, 'color': AppColors.dynamicColor},
     {
       'name': 'Sports',
       'icon': Icons.sports_soccer,
       'color': AppColors.secondary,
     },
-    {'name': 'Beauty', 'icon': Icons.face, 'color': AppColors.primary},
+    {'name': 'Beauty', 'icon': Icons.face, 'color': AppColors.dynamicColor},
     {'name': 'Books', 'icon': Icons.book, 'color': AppColors.secondary},
   ];
 
@@ -29,7 +29,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Men\'s Clothing',
         'icon': Icons.checkroom,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -44,7 +44,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Kids\' Clothing',
         'icon': Icons.child_care,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -58,7 +58,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Footwear',
         'icon': Icons.sports_soccer,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': true,
         'badgeIcon': Icons.local_fire_department,
@@ -75,7 +75,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Smartphones',
         'icon': Icons.phone_android,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -90,7 +90,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Tablets',
         'icon': Icons.tablet_android,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -106,7 +106,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Furniture',
         'icon': Icons.chair,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -120,7 +120,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Garden',
         'icon': Icons.local_florist,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -136,7 +136,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Fitness',
         'icon': Icons.fitness_center,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -150,7 +150,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Team Sports',
         'icon': Icons.sports_basketball,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -166,7 +166,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Skincare',
         'icon': Icons.face,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -180,7 +180,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Hair Care',
         'icon': Icons.content_cut,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -196,7 +196,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Fiction',
         'icon': Icons.book,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
@@ -210,7 +210,7 @@ class AllCategoriesController extends GetxController {
       {
         'name': 'Educational',
         'icon': Icons.school,
-        'color': AppColors.primary,
+        'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },

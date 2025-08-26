@@ -69,8 +69,8 @@ class ProductImageCarousel extends GetView<ProductController> {
                           height: 8.h,
                           decoration: BoxDecoration(
                             color: controller.currentImageIndex.value == index
-                                ? AppColors.primary
-                                : AppColors.primary.withValues(alpha: 0.3),
+                                ? AppColors.dynamicColor
+                                : AppColors.dynamicColor.withValues(alpha: 0.3),
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),

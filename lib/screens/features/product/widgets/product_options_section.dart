@@ -130,11 +130,11 @@ class ProductOptionsSection extends GetView<ProductController> {
                         height: 24.h,
                         decoration: BoxDecoration(
                           color: controller.selectedSizeIndex.value == index
-                              ? AppColors.primary
+                              ? AppColors.dynamicColor
                               : AppColors.borderGrey,
                           borderRadius: BorderRadius.circular(6),
                           border: controller.selectedSizeIndex.value == index
-                              ? Border.all(color: AppColors.primary, width: 1.5)
+                              ? Border.all(color: AppColors.dynamicColor, width: 1.5)
                               : null,
                         ),
                         child: Center(
@@ -200,7 +200,7 @@ class ProductOptionsSection extends GetView<ProductController> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: controller.selectedColorIndex.value == index
-                            ? Border.all(color: AppColors.primary, width: 2)
+                            ? Border.all(color: AppColors.dynamicColor, width: 2)
                             : Border.all(color: AppColors.borderGrey, width: 1),
                       ),
                       child: ClipRRect(

@@ -32,73 +32,67 @@ class ProductWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: 170.h,
+            SizedBox(
+              height: 175.h,
               width: 180.w,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(9.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.grey.withValues(alpha: 0.5),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
+              // decoration: BoxDecoration(
+              //   color: AppColors.white,
+              //   borderRadius: BorderRadius.circular(9.r),
+              //   boxShadow: [
+              //     BoxShadow(
+              //       color: AppColors.grey.withValues(alpha: 0.5),
+              //       blurRadius: 4,
+              //       offset: const Offset(0, 2),
+              //     ),
+              //   ],
+              // ),
               child: Image.asset(imageUrl, fit: BoxFit.fill),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 4.0, right: 4.0, left: 4.0),
               child: Text(
                 title,
-                style: subTitleStyle.copyWith(fontSize: 12.sp),
-                maxLines: 2,
+                style: subHeaderStyle.copyWith(fontSize: 14.sp),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            Divider(color: AppColors.borderGrey, thickness: 1.5,),
-            Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  4.0, vertical: 0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: List.generate(
-                          5,
-                          (index) => Icon(
-                            Icons.star_border,
-                            size: 10.sp,
-                            color: AppColors.grey,
-                          ),
+            SizedBox(height: 5.h),
+            Column(
+              spacing: 8.h,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: List.generate(
+                        5,
+                        (index) => Icon(
+                          Icons.star_border,
+                          size: 12.sp,
+                          color: AppColors.grey,
                         ),
                       ),
-                      Text(
-                        'Sold : 0',
-                        style: bodyStyle.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      decoration: BoxDecoration(
+                        color: AppColors.secondary,
+                        borderRadius: BorderRadius.circular(4),
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 5.w,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.secondary,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          discount,
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.white,
-                          ),
+                      child: Text(
+                        discount,
+                        style: TextStyle(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.white,
                         ),
                       ),
-                    ],
-                  ),
-                  Row(
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
@@ -108,17 +102,17 @@ class ProductWidget extends StatelessWidget {
                             width: 11.5.w,
                             height: 10.h,
                           ),
-                          SizedBox(width: 8.w),
-                          Text(
-                            originalPrice,
-                            style: bodyStyle.copyWith(
-                              decoration: TextDecoration.lineThrough,
-                            ),
-                          ),
-                          SizedBox(width: 4.w),
+                          SizedBox(width: 6.w),
+                          // Text(
+                          //   originalPrice,
+                          //   style: bodyStyle.copyWith(
+                          //     decoration: TextDecoration.lineThrough,
+                          //   ),
+                          // ),
+                          // SizedBox(width: 4.w),
                           Text(
                             currentPrice,
-                            style: titleStyle.copyWith(fontSize: 12.sp)
+                            style: titleStyle.copyWith(fontSize: 16.sp),
                           ),
                         ],
                       ),
@@ -128,24 +122,20 @@ class ProductWidget extends StatelessWidget {
                           color: AppColors.white,
                           shape: BoxShape.circle,
                           border: Border.all(color: AppColors.border),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.black.withValues(alpha: 0.05),
-                              blurRadius: 4,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: AppColors.black.withValues(alpha: 0.08),
+                          //     blurRadius: 4,
+                          //     offset: const Offset(0, 2),
+                          //   ),
+                          // ],
                         ),
-                        child: Image.asset(
-                          AppImage.cartIcon,
-                          width: 8.w,
-                          height: 8.h,
-                        ),
+                        child: Icon(Icons.shopping_cart_outlined, size: 18.sp,)
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
