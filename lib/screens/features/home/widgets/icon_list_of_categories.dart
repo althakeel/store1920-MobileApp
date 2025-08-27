@@ -57,7 +57,7 @@ class IconListOfCategories extends StatelessWidget {
                     ),
                     child: Icon(
                       categories[index]['icon'] as IconData,
-                      color: AppColors.primary,
+                      color: AppColors.black,
                       size: 28.sp,
                     ),
                   ),
@@ -65,7 +65,7 @@ class IconListOfCategories extends StatelessWidget {
                   Expanded(
                     child: Text(
                       categories[index]['name'] as String,
-                      style: bodyStyle,
+                      style: bodyStyle.copyWith(color: AppColors.black),
                       textAlign: TextAlign.center,
                     ),
                   ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static Color dynamicColor = const Color(0xFFA700FF); //#AE7EFF
+  static Color dynamicColor = const Color(0xFF9E1DAB); //#AE7EFF
   static Color primary = const Color(0xFFF8891E); //#F8891E
   static const Color gradient1 = Color(0xFFAE7EFF); //#AE7EFF
   static const Color gradient2 = Color(0xFFD6C5FB); //#D6C5FB

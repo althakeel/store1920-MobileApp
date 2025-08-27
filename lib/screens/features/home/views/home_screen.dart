@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:store1920/global/images.dart';
+import 'package:store1920/screens/features/home/widgets/custom_banner_widget.dart';
 import '../../../../global/app_color.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/icon_list_of_categories.dart';
@@ -33,7 +34,7 @@ class HomeScreen extends GetView<HomeController> {
     final statusBarHeight = MediaQuery.of(context).padding.top;
     final double topBarHeight = 80.h;
     final double horizontalPadding = 16.w;
-    const double bannerAspectRatio = 440.0 / 2064.0;
+    const double bannerAspectRatio = 1400.0 / 5000.0;
     final double bannerExpandedHeight =
         (Get.width - (horizontalPadding * 2)) * bannerAspectRatio;
     final double minHeight = statusBarHeight + topBarHeight;
@@ -45,7 +46,7 @@ class HomeScreen extends GetView<HomeController> {
         minHeight: minHeight,
         maxHeight: maxHeight,
         topBar: _buildTopBar(),
-        banner: _buildHeaderBanner(),
+        banner: CustomBannerWidget(),
       ),
     );
   }
@@ -116,14 +117,6 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 
-  Widget _buildHeaderBanner() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Image.asset(AppImage.homeBanner, fit: BoxFit.cover);
-      },
-    );
-  }
-
   Widget _buildSliverContent() {
     return SliverToBoxAdapter(
       child: Column(
@@ -139,17 +132,13 @@ class HomeScreen extends GetView<HomeController> {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 12.w),
               child: Column(
+                spacing: 16.h,
                 children: [
                   const FeatureCards(),
-                  SizedBox(height: 16.h),
                   const IconListOfCategories(),
-                  SizedBox(height: 16.h),
                   _buildAdvertisementBanner(),
-                  SizedBox(height: 16.h),
                   ProductTabsList(),
-                  SizedBox(height: 16.h),
                   ProductListWidget(),
-                  SizedBox(height: 100.h),
                 ],
               ),
             ),
@@ -161,15 +150,11 @@ class HomeScreen extends GetView<HomeController> {
 
   Widget _buildAdvertisementBanner() {
     return SizedBox(
-      width: 400.w,
-      height: 100.h,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12.r),
         child: Image.asset(
-          AppImage.banner2,
+          AppImage.homeBanner,
           fit: BoxFit.fill,
-          cacheWidth: 400,
-          cacheHeight: 100,
         ),
       ),
     );

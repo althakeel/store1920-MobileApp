@@ -57,7 +57,7 @@ class ProductTabsList extends StatelessWidget {
                             Icons.shop,
                             size: 17.sp,
                             color: selectedTabIndex.value == index
-                                ? AppColors.primary
+                                ? AppColors.black
                                 : AppColors.grey,
                           ),
                           SizedBox(width: 4.w),
@@ -66,7 +66,7 @@ class ProductTabsList extends StatelessWidget {
                           tabs[index],
                           style: subHeaderStyle.copyWith(
                             color: selectedTabIndex.value == index
-                                ? AppColors.primary
+                                ? AppColors.black
                                 : AppColors.grey,
                             fontSize: 16.sp,
                           ),

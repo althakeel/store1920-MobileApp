@@ -91,7 +91,7 @@ class ProductDescWidget extends StatelessWidget {
         children: [
           SizedBox(
             width: Get.width * 0.5.w,
-            child: Text('$label:', style: bodyStyle.copyWith()),
+            child: Text('$label:', style: bodyStyle),
           ),
           Expanded(
             child: Text(
