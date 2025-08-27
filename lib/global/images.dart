@@ -6,6 +6,8 @@ abstract class AppImage {
 
   static String get home => 'home'.iconPng;
 
+  static String get homeBanner => 'home_page_banner'.imageJpg;
+
   static String get banner1 => 'banner_1'.imageJpg;
 
   static String get banner2 => 'banner_2'.imageJpg;

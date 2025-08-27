@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:store1920/screens/widgets/custom_app_bar.dart';
 import '../../../../global/app_color.dart';
 import '../../../widgets/custom_search_bar.dart';
 import '../../../widgets/product_widget.dart';

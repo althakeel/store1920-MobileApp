@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store1920/routes/app_routes.dart';
 import '../../../../global/app_color.dart';
 import '../../../../global/images.dart';
+import '../../../../routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,6 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 1), () {
       Get.offAllNamed(AppRoutes.home);
+      // Get.to(() => HomeScreenSliver(), binding: HomeBinding());
     });
   }
 

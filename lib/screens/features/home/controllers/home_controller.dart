@@ -6,9 +6,14 @@ class HomeController extends LoaderController {
   static HomeController get instance => Get.find();
 
   RxInt currentIndex = 0.obs;
+  RxDouble scrollOffset = 0.0.obs;
 
   void changeIndex(int index) {
     currentIndex.value = index;
+  }
+
+  void updateScrollOffset(double offset) {
+    scrollOffset.value = offset;
   }
 
   double calculateChildAspectRatio() {
