@@ -43,6 +43,24 @@ abstract class AppImage {
   static String get prod7 => 'prod_7'.prodPng;
 
   static String get prod8 => 'prod_8'.prodPng;
+
+  // bottom navigation svgs
+
+  static String get unHomeSvg => 'un-home'.svg;
+
+  static String get homeSvg => 'home'.svg;
+
+  static String get unShopSvg => 'un-shop'.svg;
+
+  static String get shopSvg => 'shop'.svg;
+
+  static String get unCategorySvg => 'un-category'.svg;
+
+  static String get categorySvg => 'category'.svg;
+
+  static String get unProfileSvg => 'un-profile'.svg;
+
+  static String get profileSvg => 'profile'.svg;
 }
 
 extension on String {
@@ -56,7 +74,7 @@ extension on String {
   // String get logoPng => 'assets/logos/$this.png';
 
   ///for svg folder
-  // String get svg => 'assets/svgs/$this.svg';
+  String get svg => 'assets/svgs/$this.svg';
 
   ///for logo folder
   String get imageJpg => 'assets/images/$this.jpg';

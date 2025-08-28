@@ -24,9 +24,12 @@ class HomeScreen extends GetView<HomeController> {
         slivers: [_buildSliverAppBar(context), _buildSliverContent()],
       ),
       bottomNavigationBar: Obx(
-        () => CustomBottomNavigationBar(
-          currentIndex: controller.currentIndex.value,
-          onTap: controller.changeIndex,
+        () => SafeArea(
+          top: false,
+          child: CustomBottomNavigationBar(
+            currentIndex: controller.currentIndex.value,
+            onTap: controller.changeIndex,
+          ),
         ),
       ),
     );
