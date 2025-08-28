@@ -10,7 +10,6 @@ import '../controllers/home_controller.dart';
 import '../widgets/icon_list_of_categories.dart';
 import '../widgets/product_tabs_list.dart';
 import '../widgets/product_list_widget.dart';
-import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/feature_cards.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -22,15 +21,6 @@ class HomeScreen extends GetView<HomeController> {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [_buildSliverAppBar(context), _buildSliverContent()],
-      ),
-      bottomNavigationBar: Obx(
-        () => SafeArea(
-          top: false,
-          child: CustomBottomNavigationBar(
-            currentIndex: controller.currentIndex.value,
-            onTap: controller.changeIndex,
-          ),
-        ),
       ),
     );
   }
@@ -222,12 +212,14 @@ class _MegaDealsSection extends StatelessWidget {
                       color: AppColors.dynamicColor,
                     ),
                     SizedBox(width: 6.w),
-                    Obx(() => Text(
-                          HomeController.instance.dealsCountdownText.value,
-                          style: bodyStyle.copyWith(
-                            color: AppColors.dynamicColor,
-                          ),
-                        )),
+                    Obx(
+                      () => Text(
+                        HomeController.instance.dealsCountdownText.value,
+                        style: bodyStyle.copyWith(
+                          color: AppColors.dynamicColor,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1), () {
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.navigation);
       // Get.to(() => HomeScreenSliver(), binding: HomeBinding());
     });
   }

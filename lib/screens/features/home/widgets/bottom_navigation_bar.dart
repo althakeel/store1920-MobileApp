@@ -39,15 +39,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
             index: 0,
           ),
           _buildNavItem(
-            icon: AppImage.shopSvg,
-            unSelectedIcon: AppImage.unShopSvg,
-            label: 'Shop',
-            index: 1,
-          ),
-          _buildNavItem(
             icon: AppImage.categorySvg,
             unSelectedIcon: AppImage.unCategorySvg,
             label: 'Categories',
+            index: 1,
+          ),
+          _buildNavItem(
+            icon: AppImage.shopSvg,
+            unSelectedIcon: AppImage.unShopSvg,
+            label: 'Shop',
             index: 2,
           ),
           _buildNavItem(
@@ -86,8 +86,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
               ),
               child: Padding(
-                padding:
-                    EdgeInsets.symmetric(vertical: 2.h, horizontal: 6.w),
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 6.w),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
