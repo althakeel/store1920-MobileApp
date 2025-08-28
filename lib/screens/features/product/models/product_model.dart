@@ -1,11 +1,12 @@
 class ProductModel {
   String? brand;
   String? title;
-  double? originalPrice;
-  double? currentPrice;
+  String? originalPrice;
+  String? currentPrice;
   double? rating;
   List<String>? images;
   List<String>? sizes;
+  List<Map<String, dynamic>>? colorOptions;
   String? description;
   Specifications? specifications;
   List<Reviews>? reviews;
@@ -18,6 +19,7 @@ class ProductModel {
     this.rating,
     this.images,
     this.sizes,
+    this.colorOptions,
     this.description,
     this.specifications,
     this.reviews,
@@ -31,6 +33,9 @@ class ProductModel {
     rating = json['rating'];
     images = json['images'].cast<String>();
     sizes = json['sizes'].cast<String>();
+    if (json['colorOptions'] != null) {
+      colorOptions = List<Map<String, dynamic>>.from(json['colorOptions']);
+    }
     description = json['description'];
     specifications = json['specifications'] != null
         ? Specifications.fromJson(json['specifications'])

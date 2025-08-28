@@ -14,8 +14,8 @@ class ProductController extends GetxController {
   RxString selectedFilter = 'All'.obs;
   RxString selectedCategory = 'Shoes'.obs;
 
-  final List<String> filters = StaticData.filters;
-  final List<String> categories = StaticData.categories;
+  final List<String> filters = const ['All', 'Price', 'Rating', 'Newest', 'Popular'];
+  final List<String> categories = const ['All', 'Shoes', 'Watches', 'Bags', 'Clothing', 'Accessories'];
 
   double calculateChildAspectRatio() {
     final screenWidth = Get.width;
@@ -25,7 +25,7 @@ class ProductController extends GetxController {
     return itemWidth / (itemWidth * 1.4);
   }
 
-  final product = StaticData.product;
+  final product = StaticData.listOfProducts.first;
 
   @override
   void onInit() {
@@ -35,7 +35,7 @@ class ProductController extends GetxController {
   }
 
   void _loadProductList() {
-    productList.value = List<Map<String, dynamic>>.from(StaticData.productList);
+    productList.value = List<Map<String, dynamic>>.from(StaticData.listOfProducts);
   }
 
   void changeTab(int index) {

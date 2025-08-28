@@ -150,7 +150,7 @@ class _MegaDealsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> deals = StaticData.megaDeals;
+    final List<Map<String, dynamic>> deals = StaticData.dealsProd;
 
     return Container(
       decoration: BoxDecoration(
@@ -264,8 +264,9 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
       progress.clamp(0.0, 1.0),
     );
 
-    final remainingForBanner = (maxExtent - shrinkOffset) - minExtent;
-    final bannerHeight = remainingForBanner > 0 ? remainingForBanner : 0.0;
+    final double bannerMaxHeight = maxExtent - minExtent;
+    final double remainingForBanner = (maxExtent - shrinkOffset) - minExtent;
+    final double visibleBannerHeight = remainingForBanner.clamp(0.0, bannerMaxHeight);
 
     return ClipRect(
       child: Container(
@@ -276,8 +277,21 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           child: Column(
             children: [
               SizedBox(height: topBarHeight, child: topBar),
-              if (bannerHeight > 0)
-                SizedBox(height: bannerHeight, child: banner),
+              if (visibleBannerHeight > 0)
+                SizedBox(
+                  height: visibleBannerHeight,
+                  child: ClipRect(
+                    child: OverflowBox(
+                      alignment: Alignment.topCenter,
+                      minHeight: bannerMaxHeight,
+                      maxHeight: bannerMaxHeight,
+                      child: SizedBox(
+                        height: bannerMaxHeight,
+                        child: banner,
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

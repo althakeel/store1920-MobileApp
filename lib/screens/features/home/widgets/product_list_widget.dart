@@ -9,7 +9,7 @@ class ProductListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final products = List<Map<String, dynamic>>.from(StaticData.productList);
+    final products = List<Map<String, dynamic>>.from(StaticData.listOfProducts);
     final aspectRatio = HomeController.instance.calculateChildAspectRatio();
     return GridView.builder(
       shrinkWrap: true,

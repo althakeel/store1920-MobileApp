@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/app_color.dart';
 import '../../../../global/constant_styles.dart';
-import '../../../../global/static_data.dart';
 
 class ProductOptionsSection extends GetView<ProductController> {
   const ProductOptionsSection({super.key});
@@ -162,7 +161,8 @@ class ProductOptionsSection extends GetView<ProductController> {
   }
 
   Widget _buildColorOptions() {
-    final List<Map<String, dynamic>> colorOptions = StaticData.colorOptions;
+    final List<Map<String, dynamic>> colorOptions =
+        controller.products.value.colorOptions ?? [];
 
     return Obx(
           () => Row(

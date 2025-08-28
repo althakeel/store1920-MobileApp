@@ -8,7 +8,7 @@ class AllCategoriesController extends GetxController {
   final List<Map<String, dynamic>> mainCategories = StaticData.mainCategories;
 
   final Map<String, List<Map<String, dynamic>>> subCategoriesMap =
-      StaticData.subCategoriesMap;
+      StaticData.subCategories;
 
   void selectMainCategory(int index) {
     selectedMainCategoryIndex.value = index;
