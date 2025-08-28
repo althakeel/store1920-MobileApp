@@ -35,17 +35,6 @@ class ProductWidget extends StatelessWidget {
             SizedBox(
               height: 175.h,
               width: 180.w,
-              // decoration: BoxDecoration(
-              //   color: AppColors.white,
-              //   borderRadius: BorderRadius.circular(9.r),
-              //   boxShadow: [
-              //     BoxShadow(
-              //       color: AppColors.grey.withValues(alpha: 0.5),
-              //       blurRadius: 4,
-              //       offset: const Offset(0, 2),
-              //     ),
-              //   ],
-              // ),
               child: Image.asset(imageUrl, fit: BoxFit.fill),
             ),
             Padding(
@@ -103,13 +92,6 @@ class ProductWidget extends StatelessWidget {
                             height: 10.h,
                           ),
                           SizedBox(width: 6.w),
-                          // Text(
-                          //   originalPrice,
-                          //   style: bodyStyle.copyWith(
-                          //     decoration: TextDecoration.lineThrough,
-                          //   ),
-                          // ),
-                          // SizedBox(width: 4.w),
                           Text(
                             currentPrice,
                             style: titleStyle.copyWith(fontSize: 16.sp),
@@ -122,13 +104,6 @@ class ProductWidget extends StatelessWidget {
                           color: AppColors.white,
                           shape: BoxShape.circle,
                           border: Border.all(color: AppColors.border),
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: AppColors.black.withValues(alpha: 0.08),
-                          //     blurRadius: 4,
-                          //     offset: const Offset(0, 2),
-                          //   ),
-                          // ],
                         ),
                         child: Icon(Icons.shopping_cart_outlined, size: 18.sp,)
                       ),

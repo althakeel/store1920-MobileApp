@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:store1920/global/constant_styles.dart';
 import 'package:store1920/global/images.dart';
 import 'package:store1920/screens/features/home/widgets/custom_banner_widget.dart';
+import 'package:store1920/screens/features/home/widgets/deal_product_card.dart';
 import '../../../../global/app_color.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/icon_list_of_categories.dart';
@@ -136,7 +138,8 @@ class HomeScreen extends GetView<HomeController> {
                 children: [
                   const FeatureCards(),
                   const IconListOfCategories(),
-                  _buildAdvertisementBanner(),
+                  CustomBannerWidget(borderRadius: BorderRadius.circular(12.r)),
+                  const _MegaDealsSection(),
                   ProductTabsList(),
                   ProductListWidget(),
                 ],
@@ -147,15 +150,107 @@ class HomeScreen extends GetView<HomeController> {
       ),
     );
   }
+}
 
-  Widget _buildAdvertisementBanner() {
-    return SizedBox(
-      child: ClipRRect(
+class _MegaDealsSection extends StatelessWidget {
+  const _MegaDealsSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> deals = [
+      {
+        "img": AppImage.prod1,
+        "price": 25.75,
+        'title': 'Watches Mens 2022 LIGE Top Brand',
+      },
+      {
+        "img": AppImage.prod2,
+        "price": 33.63,
+        'title': 'Watches Mens 2022 LIGE Top Brand',
+      },
+      {
+        "img": AppImage.prod3,
+        "price": 21.56,
+        'title': 'Nike Run Defy mens LACED SHOES',
+      },
+      {
+        "img": AppImage.prod4,
+        "price": 32.15,
+        'title': 'Premium Leather Handbag',
+      },
+    ];
+
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.gradient1.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12.r),
-        child: Image.asset(
-          AppImage.homeBanner,
-          fit: BoxFit.fill,
-        ),
+      ),
+      padding: EdgeInsets.all(12.w),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'MEGA DEALS',
+                style: titleStyle.copyWith(
+                  letterSpacing: 0.6,
+                  color: AppColors.dynamicColor,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(24.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.black.withValues(alpha: 0.08),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.hourglass_bottom,
+                      size: 14.sp,
+                      color: AppColors.dynamicColor,
+                    ),
+                    SizedBox(width: 6.w),
+                    Obx(() => Text(
+                          HomeController.instance.dealsCountdownText.value,
+                          style: bodyStyle.copyWith(
+                            color: AppColors.dynamicColor,
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 4,
+            padding: EdgeInsets.symmetric(vertical: 12.h),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 12.w,
+              mainAxisSpacing: 12.h,
+              childAspectRatio: 0.72,
+            ),
+            itemBuilder: (_, i) {
+              final item = deals[i];
+              return DealProductCard(
+                imagePath: item['img'] as String,
+                price: item['price'] as double,
+                title: item['title'] as String,
+              );
+            },
+          ),
+        ],
       ),
     );
   }

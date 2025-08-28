@@ -12,11 +12,11 @@ class ProductTabsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final tabs = const [
       'All Item',
+      'Clothes',
+      'Mobiles',
+      'Watches',
       'Shoes',
-      'Shoes',
-      'Shoes',
-      'Shoes',
-      'Shoes',
+      'Perfumes',
     ];
     final RxInt selectedTabIndex = RxInt(0);
     return SizedBox(

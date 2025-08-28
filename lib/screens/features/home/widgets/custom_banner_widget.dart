@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-
 import '../../../../global/images.dart';
 
 class CustomBannerWidget extends StatelessWidget {
-  const CustomBannerWidget({super.key});
+  final BorderRadiusGeometry borderRadius;
+
+  const CustomBannerWidget({super.key, this.borderRadius = BorderRadius.zero});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Image.asset(AppImage.homeBanner, fit: BoxFit.cover);
+        return ClipRRect(
+          borderRadius: borderRadius,
+          child: Image.asset(AppImage.homeBanner, fit: BoxFit.cover),
+        );
       },
     );
   }
