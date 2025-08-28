@@ -61,6 +61,24 @@ abstract class AppImage {
   static String get unProfileSvg => 'un-profile'.svg;
 
   static String get profileSvg => 'profile'.svg;
+
+  //category icon
+
+  static String get adhesive => 'adhesives_sealers'.catPng;
+
+  static String get air => 'air_quality'.catPng;
+
+  static String get appliances => 'appliances'.catPng;
+
+  static String get audio => 'audio_radio'.catPng;
+
+  static String get electronics => 'electronics'.catPng;
+
+  static String get menCloth => 'men_clothing'.catPng;
+
+  static String get toolsHome => 'tools_home_improv'.catPng;
+
+  static String get womenCloth => 'women_clothing'.catPng;
 }
 
 extension on String {
@@ -69,6 +87,8 @@ extension on String {
 
   ///for product images
   String get prodPng => 'assets/products/$this.png';
+
+  String get catPng => 'assets/category/$this.png';
 
   ///for logo folder
   // String get logoPng => 'assets/logos/$this.png';

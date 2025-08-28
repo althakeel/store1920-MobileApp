@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../global/app_color.dart';
+import '../../../../global/images.dart';
 
 class AllCategoriesController extends GetxController {
   RxInt selectedMainCategoryIndex = 0.obs;
@@ -28,14 +29,14 @@ class AllCategoriesController extends GetxController {
     'Fashion': [
       {
         'name': 'Men\'s Clothing',
-        'icon': Icons.checkroom,
+        'icon': AppImage.menCloth,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Women\'s Clothing',
-        'icon': Icons.checkroom,
+        'icon': AppImage.womenCloth,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': true,
@@ -43,29 +44,14 @@ class AllCategoriesController extends GetxController {
       },
       {
         'name': 'Kids\' Clothing',
-        'icon': Icons.child_care,
+        'icon': AppImage.menCloth,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Accessories',
-        'icon': Icons.watch,
-        'color': AppColors.secondary,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Footwear',
-        'icon': Icons.sports_soccer,
-        'color': AppColors.dynamicColor,
-        'isSelected': false,
-        'hasBadge': true,
-        'badgeIcon': Icons.local_fire_department,
-      },
-      {
-        'name': 'Jewelry',
-        'icon': Icons.diamond,
+        'icon':AppImage.womenCloth,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,
@@ -74,29 +60,22 @@ class AllCategoriesController extends GetxController {
     'Electronics': [
       {
         'name': 'Smartphones',
-        'icon': Icons.phone_android,
+        'icon': AppImage.electronics,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Laptops',
-        'icon': Icons.laptop,
-        'color': AppColors.secondary,
+        'icon': AppImage.electronics,
+        'color': AppImage.electronics,
         'isSelected': false,
         'hasBadge': true,
         'badgeIcon': Icons.star,
       },
       {
-        'name': 'Tablets',
-        'icon': Icons.tablet_android,
-        'color': AppColors.dynamicColor,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
         'name': 'Accessories',
-        'icon': Icons.headphones,
+        'icon': AppImage.appliances,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,
@@ -105,28 +84,21 @@ class AllCategoriesController extends GetxController {
     'Home & Garden': [
       {
         'name': 'Furniture',
-        'icon': Icons.chair,
+        'icon': AppImage.toolsHome,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
-        'name': 'Kitchen',
-        'icon': Icons.kitchen,
-        'color': AppColors.secondary,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
         'name': 'Garden',
-        'icon': Icons.local_florist,
+        'icon': AppImage.air,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Decor',
-        'icon': Icons.lightbulb,
+        'icon': AppImage.electronics,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,
@@ -135,28 +107,14 @@ class AllCategoriesController extends GetxController {
     'Sports': [
       {
         'name': 'Fitness',
-        'icon': Icons.fitness_center,
-        'color': AppColors.dynamicColor,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Outdoor',
-        'icon': Icons.hiking,
-        'color': AppColors.secondary,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Team Sports',
-        'icon': Icons.sports_basketball,
+        'icon': AppImage.electronics,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Swimming',
-        'icon': Icons.pool,
+        'icon': AppImage.toolsHome,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,
@@ -165,28 +123,14 @@ class AllCategoriesController extends GetxController {
     'Beauty': [
       {
         'name': 'Skincare',
-        'icon': Icons.face,
-        'color': AppColors.dynamicColor,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Makeup',
-        'icon': Icons.brush,
-        'color': AppColors.secondary,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Hair Care',
-        'icon': Icons.content_cut,
+        'icon': AppImage.toolsHome,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Fragrances',
-        'icon': Icons.air,
+        'icon': AppImage.air,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,
@@ -195,28 +139,14 @@ class AllCategoriesController extends GetxController {
     'Books': [
       {
         'name': 'Fiction',
-        'icon': Icons.book,
+        'icon': AppImage.adhesive,
         'color': AppColors.dynamicColor,
         'isSelected': false,
         'hasBadge': false,
       },
       {
         'name': 'Non-Fiction',
-        'icon': Icons.menu_book,
-        'color': AppColors.secondary,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Educational',
-        'icon': Icons.school,
-        'color': AppColors.dynamicColor,
-        'isSelected': false,
-        'hasBadge': false,
-      },
-      {
-        'name': 'Children\'s',
-        'icon': Icons.child_care,
+        'icon': AppImage.air,
         'color': AppColors.secondary,
         'isSelected': false,
         'hasBadge': false,

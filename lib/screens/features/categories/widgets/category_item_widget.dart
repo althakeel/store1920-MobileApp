@@ -27,20 +27,17 @@ class CategoryItemWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 8.h),
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.dynamicColor : AppColors.white,
+          color: isSelected
+              ? AppColors.dynamicColor.withValues(alpha: .8)
+              : AppColors.white.withValues(alpha: .5),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: isSelected ? AppColors.dynamicColor : AppColors.borderGrey,
-            width: isSelected ? 2 : 1,
-          ),
         ),
         child: Row(
           children: [
             Expanded(
               child: Text(
                 category['name'] as String,
-                overflow: TextOverflow.ellipsis,
-                style: subTitleStyle.copyWith(
+                style: bodyStyle.copyWith(
                   color: isSelected ? AppColors.white : AppColors.black,
                 ),
               ),
@@ -48,7 +45,7 @@ class CategoryItemWidget extends StatelessWidget {
             if (isSelected)
               Icon(
                 Icons.arrow_forward_ios,
-                size: 16.sp,
+                size: 12.sp,
                 color: AppColors.white,
               ),
           ],

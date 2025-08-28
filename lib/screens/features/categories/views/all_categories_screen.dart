@@ -18,9 +18,26 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
       body: SafeArea(
         child: Column(
           children: [
-            // CustomAppBar(title: 'All Categories'),
-            CustomSearchBar(),
-            SizedBox(height: 20.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+              child: CustomSearchBar(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18.w),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Text('Categories', style: subHeaderStyle),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Text('Sub Categories', style: subHeaderStyle),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 12.h),
             Expanded(child: _buildMainContent()),
           ],
         ),
@@ -29,42 +46,44 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
   }
 
   Widget _buildMainContent() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 18.w),
-      child: Row(
-        children: [
-          Expanded(flex: 1, child: _buildMainCategories()),
-          SizedBox(width: 16.w),
-          Expanded(flex: 3, child: _buildSubCategories()),
-        ],
-      ),
+    return Row(
+      children: [
+        Expanded(child: _buildMainCategories()),
+        SizedBox(width: 8.w),
+        Expanded(flex: 3, child: _buildSubCategories()),
+      ],
     );
   }
 
   Widget _buildMainCategories() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Categories', style: subHeaderStyle),
-        SizedBox(height: 12.h),
-        Expanded(
-          child: ListView.builder(
-            itemCount: controller.mainCategories.length,
-            itemBuilder: (context, index) {
-              final category = controller.mainCategories[index];
-              return Obx(
-                () => CategoryItemWidget(
-                  category: category,
-                  index: index,
-                  selectedMainCategoryIndex:
-                      controller.selectedMainCategoryIndex.value,
-                  onTap: () => controller.selectMainCategory(index),
-                ),
-              );
-            },
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      decoration: BoxDecoration(
+        boxShadow: [BoxShadow(color: AppColors.grey.withValues(alpha: .2))],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 12.h),
+          Expanded(
+            child: ListView.builder(
+              itemCount: controller.mainCategories.length,
+              itemBuilder: (context, index) {
+                final category = controller.mainCategories[index];
+                return Obx(
+                  () => CategoryItemWidget(
+                    category: category,
+                    index: index,
+                    selectedMainCategoryIndex:
+                        controller.selectedMainCategoryIndex.value,
+                    onTap: () => controller.selectMainCategory(index),
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -88,15 +107,12 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Sub Categories', style: subHeaderStyle),
-          SizedBox(height: 12.h),
           Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 12.w,
-                mainAxisSpacing: 12.h,
-                childAspectRatio: 0.8,
+                childAspectRatio: .8,
               ),
               itemCount: controller
                   .getSubCategories(selectedCategory['name'])
