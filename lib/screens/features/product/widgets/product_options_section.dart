@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:store1920/screens/features/product/controllers/product_controller.dart';
 import '../../../../global/app_color.dart';
 import '../../../../global/constant_styles.dart';
-import '../../../../global/images.dart';
+import '../../../../global/static_data.dart';
 
 class ProductOptionsSection extends GetView<ProductController> {
   const ProductOptionsSection({super.key});
@@ -162,12 +162,7 @@ class ProductOptionsSection extends GetView<ProductController> {
   }
 
   Widget _buildColorOptions() {
-    final List<Map<String, dynamic>> colorOptions = [
-      {'name': 'Red', 'image': AppImage.prod1, 'color': Colors.red},
-      {'name': 'Blue', 'image': AppImage.prod2, 'color': Colors.blue},
-      {'name': 'Black', 'image': AppImage.prod3, 'color': Colors.black},
-      {'name': 'White', 'image': AppImage.prod4, 'color': Colors.white},
-    ];
+    final List<Map<String, dynamic>> colorOptions = StaticData.colorOptions;
 
     return Obx(
           () => Row(

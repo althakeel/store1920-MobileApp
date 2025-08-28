@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:store1920/global/constant_styles.dart';
-import 'package:store1920/global/images.dart';
+import 'package:store1920/global/static_data.dart';
 import 'package:store1920/screens/features/home/widgets/custom_banner_widget.dart';
 import 'package:store1920/screens/features/home/widgets/deal_product_card.dart';
 import '../../../../global/app_color.dart';
@@ -150,28 +150,7 @@ class _MegaDealsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> deals = [
-      {
-        "img": AppImage.prod1,
-        "price": 25.75,
-        'title': 'Watches Mens 2022 LIGE Top Brand',
-      },
-      {
-        "img": AppImage.prod2,
-        "price": 33.63,
-        'title': 'Watches Mens 2022 LIGE Top Brand',
-      },
-      {
-        "img": AppImage.prod3,
-        "price": 21.56,
-        'title': 'Nike Run Defy mens LACED SHOES',
-      },
-      {
-        "img": AppImage.prod4,
-        "price": 32.15,
-        'title': 'Premium Leather Handbag',
-      },
-    ];
+    final List<Map<String, dynamic>> deals = StaticData.megaDeals;
 
     return Container(
       decoration: BoxDecoration(
