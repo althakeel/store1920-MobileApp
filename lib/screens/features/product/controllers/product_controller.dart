@@ -11,11 +11,17 @@ class ProductController extends GetxController {
   RxInt quantity = 1.obs;
   Rx<ProductModel> products = Rx(ProductModel());
   RxList<Map<String, dynamic>> productList = <Map<String, dynamic>>[].obs;
-  RxString selectedFilter = 'All'.obs;
-  RxString selectedCategory = 'Shoes'.obs;
+  RxString selectedCategory = 'All'.obs;
 
-  final List<String> filters = const ['All', 'Price', 'Rating', 'Newest', 'Popular'];
-  final List<String> categories = const ['All', 'Shoes', 'Watches', 'Bags', 'Clothing', 'Accessories'];
+  List<String> get categories {
+    final all = List<Map<String, dynamic>>.from(StaticData.listOfProducts);
+    final unique = <String>{'All'};
+    for (final p in all) {
+      final sc = p['sub_category'];
+      if (sc is String && sc.isNotEmpty) unique.add(sc);
+    }
+    return unique.toList();
+  }
 
   double calculateChildAspectRatio() {
     final screenWidth = Get.width;
@@ -25,12 +31,26 @@ class ProductController extends GetxController {
     return itemWidth / (itemWidth * 1.4);
   }
 
-  final product = StaticData.listOfProducts.first;
+  Map<String, dynamic>? initialProduct;
 
   @override
   void onInit() {
-    products.value = ProductModel.fromJson(product);
-    _loadProductList();
+    final args = Get.arguments;
+    if (args is Map && args['subCategory'] is String &&
+        (args['subCategory'] as String).isNotEmpty) {
+      selectedCategory.value = args['subCategory'];
+    }
+    if (args is Map && args['productId'] != null) {
+      final String id = args['productId'];
+      initialProduct = StaticData.listOfProducts.firstWhere(
+        (p) => p['id'] == id,
+        orElse: () => StaticData.listOfProducts.first,
+      );
+    } else {
+      initialProduct = StaticData.listOfProducts.first;
+    }
+    products.value = ProductModel.fromJson(initialProduct!);
+    _applyFilters();
     super.onInit();
   }
 
@@ -65,8 +85,7 @@ class ProductController extends GetxController {
   }
 
   void selectFilter(String filter) {
-    selectedFilter.value = filter;
-    _applyFilters();
+    // Filters removed
   }
 
   void selectCategory(String category) {
@@ -76,32 +95,10 @@ class ProductController extends GetxController {
 
   void _applyFilters() {
     _loadProductList();
-
     if (selectedCategory.value != 'All') {
       productList.value = productList
           .where((product) => product['sub_category'] == selectedCategory.value)
           .toList();
-    }
-
-    switch (selectedFilter.value) {
-      case 'Price':
-        productList.sort(
-          (a, b) => double.parse(
-            a['currentPrice'],
-          ).compareTo(double.parse(b['currentPrice'])),
-        );
-        break;
-      case 'Rating':
-        productList.sort((a, b) => b['rating'].compareTo(a['rating']));
-        break;
-      case 'Newest':
-        productList.value = productList.reversed.toList();
-        break;
-      case 'Popular':
-        productList.sort(
-          (a, b) => int.parse(b['sold']).compareTo(int.parse(a['sold'])),
-        );
-        break;
     }
   }
 }

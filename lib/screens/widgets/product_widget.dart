@@ -7,6 +7,7 @@ import '../../../../global/images.dart';
 import '../../../../routes/app_routes.dart';
 
 class ProductWidget extends StatelessWidget {
+  final String? productId;
   final String imageUrl;
   final String title;
   final String originalPrice;
@@ -16,6 +17,7 @@ class ProductWidget extends StatelessWidget {
 
   const ProductWidget({
     super.key,
+    this.productId,
     required this.imageUrl,
     required this.title,
     required this.originalPrice,
@@ -27,7 +29,10 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.toNamed(AppRoutes.productDetail),
+      onTap: () => Get.toNamed(
+        AppRoutes.productDetail,
+        arguments: {'productId': productId},
+      ),
       child: RepaintBoundary(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

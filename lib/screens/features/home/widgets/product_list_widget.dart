@@ -25,6 +25,7 @@ class ProductListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         final product = products[index];
         return ProductWidget(
+          productId: product['id'],
           imageUrl: product['imageUrl'] ?? '',
           title: product['title'] ?? '',
           originalPrice: product['originalPrice'] ?? '',

@@ -19,7 +19,7 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+              padding: EdgeInsets.fromLTRB(4.w, 12.h, 12.w, 12.h),
               child: CustomSearchBar(),
             ),
             Padding(

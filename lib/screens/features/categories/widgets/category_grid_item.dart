@@ -20,7 +20,7 @@ class CategoryGridItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         onTap();
-        Get.toNamed(AppRoutes.productList);
+        Get.toNamed(AppRoutes.productList, arguments: {'subCategory': category['name']});
       },
       child: Column(
         children: [
