@@ -90,7 +90,7 @@ class ProductReviewWidget extends StatelessWidget {
                                 vertical: 4.h,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.dynamicColor.withValues(alpha: 0.1),
+                                color: AppColors.dynamicColor.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(

@@ -1,9 +1,11 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:store1920/screens/features/product/models/product_model.dart';
 import 'package:store1920/global/static_data.dart';
 
 class ProductController extends GetxController {
+  static ProductController get instance => Get.find();
   RxInt selectedTabIndex = 0.obs;
   RxInt currentImageIndex = 0.obs;
   RxInt selectedSizeIndex = 0.obs;
@@ -32,11 +34,13 @@ class ProductController extends GetxController {
   }
 
   Map<String, dynamic>? initialProduct;
+  final PageController imagePageController = PageController();
 
   @override
   void onInit() {
     final args = Get.arguments;
-    if (args is Map && args['subCategory'] is String &&
+    if (args is Map &&
+        args['subCategory'] is String &&
         (args['subCategory'] as String).isNotEmpty) {
       selectedCategory.value = args['subCategory'];
     }
@@ -54,8 +58,16 @@ class ProductController extends GetxController {
     super.onInit();
   }
 
+  @override
+  void onClose() {
+    imagePageController.dispose();
+    super.onClose();
+  }
+
   void _loadProductList() {
-    productList.value = List<Map<String, dynamic>>.from(StaticData.listOfProducts);
+    productList.value = List<Map<String, dynamic>>.from(
+      StaticData.listOfProducts,
+    );
   }
 
   void changeTab(int index) {
@@ -64,6 +76,15 @@ class ProductController extends GetxController {
 
   void changeImage(int index) {
     currentImageIndex.value = index;
+  }
+
+  void goToImage(int index) {
+    imagePageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 250),
+      curve: Curves.easeInOut,
+    );
+    changeImage(index);
   }
 
   void selectSize(int index) {
