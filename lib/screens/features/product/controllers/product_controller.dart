@@ -79,7 +79,7 @@ class ProductController extends GetxController {
 
     if (selectedCategory.value != 'All') {
       productList.value = productList
-          .where((product) => product['category'] == selectedCategory.value)
+          .where((product) => product['sub_category'] == selectedCategory.value)
           .toList();
     }
 

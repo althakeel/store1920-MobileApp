@@ -62,23 +62,49 @@ abstract class AppImage {
 
   static String get profileSvg => 'profile'.svg;
 
+  //sub_category icon
+
+  static String get adhesive => 'adhesives_sealers'.subCatPng;
+
+  static String get air => 'air_quality'.subCatPng;
+
+  static String get appliances => 'appliances'.subCatPng;
+
+  static String get audio => 'audio_radio'.subCatPng;
+
+  static String get subElectronics => 'electronics'.subCatPng;
+
+  static String get subMenCloth => 'men_clothing'.subCatPng;
+
+  static String get subToolsHome => 'tools_home_improv'.subCatPng;
+
+  static String get womenCloth => 'women_clothing'.subCatPng;
+
   //category icon
 
-  static String get adhesive => 'adhesives_sealers'.catPng;
+  static String get appliance => 'appliance'.catPng;
 
-  static String get air => 'air_quality'.catPng;
-
-  static String get appliances => 'appliances'.catPng;
-
-  static String get audio => 'audio_radio'.catPng;
+  static String get automative => 'automative'.catPng;
 
   static String get electronics => 'electronics'.catPng;
 
   static String get menCloth => 'men_clothing'.catPng;
 
+  static String get petSupplies => 'pet_supplies'.catPng;
+
+  static String get smartHome => 'smart_home'.catPng;
+
+  static String get sportsOutdoor => 'sports_outdoor'.catPng;
+
   static String get toolsHome => 'tools_home_improv'.catPng;
 
-  static String get womenCloth => 'women_clothing'.catPng;
+  static String get toys => 'toys'.catPng;
+
+  static String get womenClothing => 'womens_clothing'.catPng;
+
+  static String get beautyOutdoors => 'beauty_outdoors'.catPng;
+
+  static String get cellPhone => 'cell_phone'.catPng;
 }
 
 extension on String {
@@ -89,6 +115,8 @@ extension on String {
   String get prodPng => 'assets/products/$this.png';
 
   String get catPng => 'assets/category/$this.png';
+
+  String get subCatPng => 'assets/sub_category/$this.png';
 
   ///for logo folder
   // String get logoPng => 'assets/logos/$this.png';

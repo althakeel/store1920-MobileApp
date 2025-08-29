@@ -4,42 +4,109 @@ import 'package:store1920/global/images.dart';
 
 class StaticData {
   static final List<Map<String, dynamic>> mainCategories = [
-    {'name': 'Fashion', 'icon': Icons.style, 'color': AppColors.dynamicColor},
     {
-      'name': 'Electronics',
-      'icon': Icons.phone_android,
+      'name': 'Sports & Outdoors',
+      'icon': AppImage.sportsOutdoor,
       'color': AppColors.secondary,
     },
     {
-      'name': 'Home & Garden',
-      'icon': Icons.home,
+      'name': 'Tools & Home Improvement',
+      'icon': AppImage.toolsHome,
+      'color': AppColors.secondary,
+    },
+    {
+      'name': 'Men\'s Clothing',
+      'icon': AppImage.menCloth,
+      'color': AppColors.secondary,
+    },
+    {
+      'name': 'Women\'s Clothing',
+      'icon': AppImage.womenClothing,
+      'color': AppColors.secondary,
+    },
+    {
+      'name': 'Electronics',
+      'icon': AppImage.electronics,
+      'color': AppColors.secondary,
+    },
+    {
+      'name': 'Beauty & Outdoor',
+      'icon': AppImage.beautyOutdoors,
+      'color': AppColors.secondary,
+    },
+    {
+      'name': 'Smart Home',
+      'icon': AppImage.smartHome,
       'color': AppColors.dynamicColor,
     },
     {
-      'name': 'Sports',
-      'icon': Icons.sports_soccer,
+      'name': 'Appliances',
+      'icon': AppImage.appliance,
       'color': AppColors.secondary,
     },
-    {'name': 'Beauty', 'icon': Icons.face, 'color': AppColors.dynamicColor},
-    {'name': 'Books', 'icon': Icons.book, 'color': AppColors.secondary},
+    {
+      'name': 'Automotive',
+      'icon': AppImage.automative,
+      'color': AppColors.dynamicColor,
+    },
+
+    {
+      'name': 'Cell Phone & Accessories',
+      'icon': AppImage.cellPhone,
+      'color': AppColors.secondary,
+    },
+
+    {
+      'name': 'Pet Supplies',
+      'icon': AppImage.petSupplies,
+      'color': AppColors.secondary,
+    },
+    {'name': 'Toys', 'icon': AppImage.toys, 'color': AppColors.dynamicColor},
   ];
 
   static final Map<String, List<Map<String, dynamic>>> subCategories = {
-    'Fashion': [
+    'Men\'s Clothing': [
       {
-        'name': 'Shoes',
+        'name': 'Men\'s T-Shirts',
         'icon': AppImage.prod7,
         'color': AppColors.dynamicColor,
       },
-      {'name': 'Watches', 'icon': AppImage.prod6, 'color': AppColors.secondary},
+      {
+        'name': 'Men\'s Jackets & Coats',
+        'icon': AppImage.prod6,
+        'color': AppColors.secondary,
+      },
       {'name': 'Bags', 'icon': AppImage.prod3, 'color': AppColors.dynamicColor},
       {
-        'name': 'Clothing',
+        'name': 'Men\'s Casual Pants',
         'icon': AppImage.prod5,
         'color': AppColors.secondary,
       },
       {
-        'name': 'Accessories',
+        'name': 'Men\'s Polos',
+        'icon': AppImage.prod4,
+        'color': AppColors.dynamicColor,
+      },
+    ],
+    'Women\'s Clothing': [
+      {
+        'name': 'Women\'s Dresses',
+        'icon': AppImage.prod7,
+        'color': AppColors.dynamicColor,
+      },
+      {
+        'name': 'Women\'s T-Shirts',
+        'icon': AppImage.prod6,
+        'color': AppColors.secondary,
+      },
+      {'name': 'Bags', 'icon': AppImage.prod3, 'color': AppColors.dynamicColor},
+      {
+        'name': 'Women\'s Coats & Jackets',
+        'icon': AppImage.prod5,
+        'color': AppColors.secondary,
+      },
+      {
+        'name': 'Women\'s Pants',
         'icon': AppImage.prod4,
         'color': AppColors.dynamicColor,
       },
@@ -47,12 +114,12 @@ class StaticData {
     'Electronics': [
       {
         'name': 'Smartphones',
-        'icon': AppImage.electronics,
+        'icon': AppImage.subElectronics,
         'color': AppColors.dynamicColor,
       },
       {
         'name': 'Laptops',
-        'icon': AppImage.electronics,
+        'icon': AppImage.subElectronics,
         'color': AppColors.dynamicColor,
       },
       {
@@ -61,35 +128,35 @@ class StaticData {
         'color': AppColors.secondary,
       },
     ],
-    'Home & Garden': [
+    'Tools & Home Improvement': [
       {
-        'name': 'Furniture',
-        'icon': AppImage.toolsHome,
+        'name': 'Wallpaper',
+        'icon': AppImage.subToolsHome,
         'color': AppColors.dynamicColor,
       },
       {'name': 'Garden', 'icon': AppImage.air, 'color': AppColors.dynamicColor},
       {
         'name': 'Decor',
-        'icon': AppImage.electronics,
+        'icon': AppImage.subElectronics,
         'color': AppColors.secondary,
       },
     ],
-    'Sports': [
+    'Sports & Outdoors': [
       {
         'name': 'Fitness',
-        'icon': AppImage.electronics,
+        'icon': AppImage.subElectronics,
         'color': AppColors.dynamicColor,
       },
       {
         'name': 'Swimming',
-        'icon': AppImage.toolsHome,
+        'icon': AppImage.subToolsHome,
         'color': AppColors.secondary,
       },
     ],
-    'Beauty': [
+    'Beauty & Outdoor': [
       {
         'name': 'Skincare',
-        'icon': AppImage.toolsHome,
+        'icon': AppImage.subToolsHome,
         'color': AppColors.dynamicColor,
       },
       {
@@ -98,14 +165,14 @@ class StaticData {
         'color': AppColors.secondary,
       },
     ],
-    'Books': [
+    'Smart Home': [
       {
-        'name': 'Fiction',
+        'name': 'Smart Lighting',
         'icon': AppImage.adhesive,
         'color': AppColors.dynamicColor,
       },
       {
-        'name': 'Non-Fiction',
+        'name': 'Smart Devices',
         'icon': AppImage.air,
         'color': AppColors.secondary,
       },
@@ -124,7 +191,7 @@ class StaticData {
       'rating': 4.5,
       'mainCategory': 'Fashion',
       'subcategory': 'Watches',
-      'category': 'Watches',
+      'sub_category': 'Watches',
       'isTrending': true,
       'images': [AppImage.prod1, AppImage.prod6, AppImage.prod3],
       'sizes': ['S', 'M', 'L', 'XL'],
@@ -146,7 +213,7 @@ class StaticData {
       'rating': 4.2,
       'mainCategory': 'Fashion',
       'subcategory': 'Shoes',
-      'category': 'Shoes',
+      'sub_category': 'Shoes',
       'isBestChoice': true,
       'images': [AppImage.banner1, AppImage.banner2, AppImage.banner3],
       'sizes': ['7', '8', '9', '10'],
@@ -167,7 +234,7 @@ class StaticData {
       'rating': 4.8,
       'mainCategory': 'Fashion',
       'subcategory': 'Bags',
-      'category': 'Bags',
+      'sub_category': 'Bags',
     },
     {
       'id': 'p4',
@@ -180,7 +247,7 @@ class StaticData {
       'rating': 4.3,
       'mainCategory': 'Fashion',
       'subcategory': 'Accessories',
-      'category': 'Accessories',
+      'sub_category': 'Accessories',
       'isBestChoice': true,
     },
     {
@@ -194,7 +261,7 @@ class StaticData {
       'rating': 4.1,
       'mainCategory': 'Fashion',
       'subcategory': 'Clothing',
-      'category': 'Clothing',
+      'sub_category': 'Clothing',
     },
     {
       'id': 'p6',
@@ -207,7 +274,7 @@ class StaticData {
       'rating': 4.7,
       'mainCategory': 'Fashion',
       'subcategory': 'Watches',
-      'category': 'Watches',
+      'sub_category': 'Watches',
       'isTrending': true,
     },
     {
@@ -221,7 +288,7 @@ class StaticData {
       'rating': 4.4,
       'mainCategory': 'Fashion',
       'subcategory': 'Shoes',
-      'category': 'Shoes',
+      'sub_category': 'Shoes',
     },
     {
       'id': 'p8',
@@ -234,7 +301,7 @@ class StaticData {
       'rating': 4.0,
       'mainCategory': 'Fashion',
       'subcategory': 'Accessories',
-      'category': 'Accessories',
+      'sub_category': 'Accessories',
     },
   ];
 

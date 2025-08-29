@@ -17,11 +17,6 @@ class CategoryGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final isSelected = category['isSelected'] ?? false;
-    // final hasBadge = category['hasBadge'] ?? false;
-    // final badgeIcon = category['badgeIcon'];
-    // final color = category['color'] ?? AppColors.dynamicColor;
-
     return GestureDetector(
       onTap: () {
         onTap();
@@ -46,7 +41,8 @@ class CategoryGridItem extends StatelessWidget {
                   builder: (context, constraints) {
                     final double inset = 12.w;
                     final double factor =
-                        ((constraints.maxWidth - inset * 2) / constraints.maxWidth)
+                        ((constraints.maxWidth - inset * 2) /
+                                constraints.maxWidth)
                             .clamp(0.8, 0.92);
                     return FractionallySizedBox(
                       widthFactor: factor,

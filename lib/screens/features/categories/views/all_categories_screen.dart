@@ -98,7 +98,7 @@ class AllCategoriesScreen extends GetView<AllCategoriesController> {
       if (selectedCategory == null) {
         return Center(
           child: Text(
-            'Select a category to view subcategories',
+            'Select a sub_category to view subcategories',
             style: subTitleStyle,
           ),
         );
