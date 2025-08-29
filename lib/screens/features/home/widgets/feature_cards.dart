@@ -158,34 +158,32 @@ class _FeatureCardsState extends State<FeatureCards> {
             child: Icon(icon, color: AppColors.black, size: 18.sp),
           ),
           SizedBox(width: 4.w),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: isDecoration
-                        ? AppColors.white
-                        : Colors.green.withValues(green: .5),
-                    fontSize: 16.sp,
-                    letterSpacing: 0.6,
-                    fontWeight: FontWeight.w800,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: isDecoration
+                      ? AppColors.white
+                      : Colors.green.withValues(green: .5),
+                  fontSize: 16.sp,
+                  letterSpacing: 0.6,
+                  fontWeight: FontWeight.w800,
                 ),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: isDecoration
-                        ? AppColors.white
-                        : Colors.black.withValues(alpha: 0.9),
-                    fontSize: 12.sp,
-                    letterSpacing: 0.6,
-                    fontWeight: FontWeight.w400,
-                  ),
+              ),
+              Text(
+                subtitle,
+                style: TextStyle(
+                  color: isDecoration
+                      ? AppColors.white
+                      : Colors.black.withValues(alpha: 0.9),
+                  fontSize: 12.sp,
+                  letterSpacing: 0.6,
+                  fontWeight: FontWeight.w400,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

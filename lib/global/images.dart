@@ -88,7 +88,7 @@ abstract class AppImage {
 
   static String get electronics => 'electronics'.catPng;
 
-  static String get menCloth => 'men_clothing'.catPng;
+  static String get menCloth => 'mens_clothing'.catPng;
 
   static String get petSupplies => 'pet_supplies'.catPng;
 
@@ -114,7 +114,7 @@ extension on String {
   ///for product images
   String get prodPng => 'assets/products/$this.png';
 
-  String get catPng => 'assets/category/$this.png';
+  String get catPng => 'assets/category/$this.jpg';
 
   String get subCatPng => 'assets/sub_category/$this.png';
 

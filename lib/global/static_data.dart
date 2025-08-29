@@ -127,6 +127,11 @@ class StaticData {
         'icon': AppImage.appliances,
         'color': AppColors.secondary,
       },
+      {
+        'name': 'Watches',
+        'icon': AppImage.appliances,
+        'color': AppColors.secondary,
+      },
     ],
     'Tools & Home Improvement': [
       {
@@ -152,6 +157,11 @@ class StaticData {
         'icon': AppImage.subToolsHome,
         'color': AppColors.secondary,
       },
+      {
+        'name': 'Shoes',
+        'icon': AppImage.subToolsHome,
+        'color': AppColors.secondary,
+      },
     ],
     'Beauty & Outdoor': [
       {
@@ -160,7 +170,12 @@ class StaticData {
         'color': AppColors.dynamicColor,
       },
       {
-        'name': 'Fragrances',
+        'name': 'Bags',
+        'icon': AppImage.air,
+        'color': AppColors.secondary,
+      },
+      {
+        'name': 'Accessories',
         'icon': AppImage.air,
         'color': AppColors.secondary,
       },
@@ -189,8 +204,7 @@ class StaticData {
       'discount': '-24% OFF',
       'sold': '0',
       'rating': 4.5,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Watches',
+      'mainCategory': 'Electronics',
       'sub_category': 'Watches',
       'isTrending': true,
       'images': [AppImage.prod1, AppImage.prod6, AppImage.prod3],
@@ -211,8 +225,7 @@ class StaticData {
       'discount': '-36% OFF',
       'sold': '0',
       'rating': 4.2,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Shoes',
+      'mainCategory': 'Sports & Outdoors',
       'sub_category': 'Shoes',
       'isBestChoice': true,
       'images': [AppImage.banner1, AppImage.banner2, AppImage.banner3],
@@ -232,8 +245,7 @@ class StaticData {
       'discount': '-25% OFF',
       'sold': '0',
       'rating': 4.8,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Bags',
+      'mainCategory': 'Beauty & Outdoor',
       'sub_category': 'Bags',
     },
     {
@@ -245,8 +257,7 @@ class StaticData {
       'discount': '-21% OFF',
       'sold': '0',
       'rating': 4.3,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Accessories',
+      'mainCategory': 'Beauty & Outdoor',
       'sub_category': 'Accessories',
       'isBestChoice': true,
     },
@@ -260,8 +271,7 @@ class StaticData {
       'sold': '0',
       'rating': 4.1,
       'mainCategory': 'Fashion',
-      'subcategory': 'Clothing',
-      'sub_category': 'Clothing',
+      'sub_category': 'Men\'s Casual Pants',
     },
     {
       'id': 'p6',
@@ -272,8 +282,7 @@ class StaticData {
       'discount': '-25% OFF',
       'sold': '0',
       'rating': 4.7,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Watches',
+      'mainCategory': 'Electronics',
       'sub_category': 'Watches',
       'isTrending': true,
     },
@@ -286,8 +295,7 @@ class StaticData {
       'discount': '-20% OFF',
       'sold': '0',
       'rating': 4.4,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Shoes',
+      'mainCategory': 'Sports & Outdoors',
       'sub_category': 'Shoes',
     },
     {
@@ -299,8 +307,7 @@ class StaticData {
       'discount': '-20% OFF',
       'sold': '0',
       'rating': 4.0,
-      'mainCategory': 'Fashion',
-      'subcategory': 'Accessories',
+      'mainCategory': 'Beauty & Outdoor',
       'sub_category': 'Accessories',
     },
   ];
